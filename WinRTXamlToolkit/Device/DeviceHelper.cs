@@ -1,4 +1,4 @@
-﻿//TODO: This needs some work to adapt to UWP - see http://stackoverflow.com/questions/31735968/hardwareidentification-getpackagespecifictoken-api-changed-in-windows-10-
+//TODO: This needs some work to adapt to UWP - see http://stackoverflow.com/questions/31735968/hardwareidentification-getpackagespecifictoken-api-changed-in-windows-10-
 
 //using System.Text;
 //using Windows.System.Profile;

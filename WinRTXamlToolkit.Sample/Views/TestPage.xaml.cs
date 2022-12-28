@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using WinRTXamlToolkit.Controls;
 using WinRTXamlToolkit.Sample.ViewModels;
 
@@ -37,14 +37,14 @@ namespace WinRTXamlToolkit.Sample.Views
             var content = (FrameworkElement)Activator.CreateInstance(sampleButton.ViewType);
             this.ContentGrid.Children.Add(content);
             AddHandler(Control.KeyDownEvent, new KeyEventHandler(TestPage_OnKeyDown), true);
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            App.Window.CoreWindow.KeyDown += CoreWindow_KeyDown;
             return base.OnNavigatedToAsync(e);
         }
 
         protected override Task OnNavigatedFromAsync(AlternativeNavigationEventArgs e)
         {
             RemoveHandler(Control.KeyDownEvent, new KeyEventHandler(TestPage_OnKeyDown));
-            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+            App.Window.CoreWindow.KeyDown -= CoreWindow_KeyDown;
             return base.OnNavigatedFromAsync(e);
         }
 
@@ -52,7 +52,7 @@ namespace WinRTXamlToolkit.Sample.Views
         {
             if (!e.Handled &&
                 (e.Key == VirtualKey.Escape ||
-                (e.Key == VirtualKey.Left && ((Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu) & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down))))
+                (e.Key == VirtualKey.Left && ((App.Window.CoreWindow.GetKeyState(VirtualKey.Menu) & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down))))
             {
                 await this.Frame.GoBackAsync();
                 e.Handled = true;
@@ -69,7 +69,7 @@ namespace WinRTXamlToolkit.Sample.Views
             if (!this.keyDownWasHandled &&
                 //!e.Handled && // TODO: Why is this handled? Happens when focus is in Visual Tree Debugger's search box
                 (e.VirtualKey == VirtualKey.Escape ||
-                (e.VirtualKey == VirtualKey.Left && ((Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu) & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down))))
+                (e.VirtualKey == VirtualKey.Left && ((App.Window.CoreWindow.GetKeyState(VirtualKey.Menu) & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down))))
             {
                 await this.Frame.GoBackAsync();
                 e.Handled = true;

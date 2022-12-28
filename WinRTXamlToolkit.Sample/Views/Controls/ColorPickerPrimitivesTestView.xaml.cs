@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using WinRTXamlToolkit.Async;
 using WinRTXamlToolkit.Imaging;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace WinRTXamlToolkit.Sample.Views
 {
@@ -99,7 +99,7 @@ namespace WinRTXamlToolkit.Sample.Views
             _triangleUpdateRequired.Set();
         }
 
-        private void hueRing_ValueChanged_1(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void hueRing_ValueChanged_1(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             _triangleUpdateRequired.Set();
         }

@@ -1,8 +1,8 @@
-﻿#if NETFX_CORE
+#if NETFX_CORE
 using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.AwaitableUI
 {

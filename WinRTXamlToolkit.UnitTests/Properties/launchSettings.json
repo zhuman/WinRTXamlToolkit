@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "WinRTXamlToolkit.UnitTests (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinRTXamlToolkit.UnitTests (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

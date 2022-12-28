@@ -1,6 +1,6 @@
-﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using System;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 namespace WinRTXamlToolkit.Controls.Common
 {
@@ -89,7 +89,7 @@ namespace WinRTXamlToolkit.Controls.Common
             BindingMode bindingMode = BindingMode.TwoWay)
         {
             //var panel =
-            //    ((DependencyObject)Window.Current.Content).GetFirstDescendantOfType<Panel>();
+            //    ((DependencyObject)App.Window.Content).GetFirstDescendantOfType<Panel>();
             //panel.Children.Add(this);
             _source = source;
 

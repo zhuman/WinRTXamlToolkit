@@ -1,4 +1,4 @@
-﻿//#define DUMPTYPES
+//#define DUMPTYPES
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,10 +9,10 @@ using System.Text;
 #endif
 using System.Threading.Tasks;
 using WinRTXamlToolkit.Tools;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Automation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Automation;
 
 namespace WinRTXamlToolkit.Debugging.Common
 {
@@ -120,7 +120,7 @@ namespace WinRTXamlToolkit.Debugging.Common
                 {
                     // Uncomment to printf-debug app-crashing type scanning issues
                     //System.Diagnostics.Debug.WriteLine("S{2}>{0}.{1}", type.ToString(), dpPropertyInfo.Name, type.GetTypeInfo().Assembly.FullName);
-                    //if (type.FullName == "Windows.UI.Xaml.Controls.Primitives.LoopingSelector" &&
+                    //if (type.FullName == "Microsoft.UI.Xaml.Controls.Primitives.LoopingSelector" &&
                     //    dpPropertyInfo.Name == "ShouldLoopProperty")
                     //{
                     //    Debugger.Break();
@@ -132,18 +132,18 @@ namespace WinRTXamlToolkit.Debugging.Common
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.Maps.MapControl")
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.Maps.MapControl")
                     {
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs" &&
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs" &&
                         dpPropertyInfo.Name == "ReasonProperty" )
                     {
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.Maps.MapIcon" &&
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.Maps.MapIcon" &&
                         (dpPropertyInfo.Name == "LocationProperty" ||
                         dpPropertyInfo.Name == "NormalizedAnchorPointProperty" ||
                         dpPropertyInfo.Name == "TitleProperty"))
@@ -151,7 +151,7 @@ namespace WinRTXamlToolkit.Debugging.Common
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.Maps.MapItemsControl" &&
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.Maps.MapItemsControl" &&
                         (dpPropertyInfo.Name == "ItemTemplateProperty" ||
                         dpPropertyInfo.Name == "ItemsProperty" ||
                         dpPropertyInfo.Name == "ItemsSourceProperty"))
@@ -159,7 +159,7 @@ namespace WinRTXamlToolkit.Debugging.Common
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.Maps.MapPolygon" &&
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.Maps.MapPolygon" &&
                         (dpPropertyInfo.Name == "PathProperty" ||
                         dpPropertyInfo.Name == "StrokeDashedProperty" ||
                         dpPropertyInfo.Name == "StrokeThicknessProperty"))
@@ -167,7 +167,7 @@ namespace WinRTXamlToolkit.Debugging.Common
                         continue;
                     }
 
-                    if (type.FullName == "Windows.UI.Xaml.Controls.Maps.MapPolyline" &&
+                    if (type.FullName == "Microsoft.UI.Xaml.Controls.Maps.MapPolyline" &&
                         (dpPropertyInfo.Name == "PathProperty" ||
                         dpPropertyInfo.Name == "StrokeDashedProperty"))
                     {

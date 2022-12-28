@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using Windows.Foundation;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Controls
 {
     /// <summary>
     /// A panel similar to StackPanel, but with it's orientation flipping from horizontal to vertical if all elements don't fit horizontally.
     /// </summary>
-    /// <seealso cref="Windows.UI.Xaml.Controls.Panel" />
+    /// <seealso cref="Microsoft.UI.Xaml.Controls.Panel" />
     public class AutoOrientingStackPanel
         : Panel
     {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -6,7 +6,7 @@ using WinRTXamlToolkit.Imaging;
 using WinRTXamlToolkit.Sample.Common;
 using WinRTXamlToolkit.Tools;
 using Windows.UI;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Sample.ViewModels.Controls
 {

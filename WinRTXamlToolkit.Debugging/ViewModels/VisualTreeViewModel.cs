@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 using WinRTXamlToolkit.Debugging.Views;
 
 namespace WinRTXamlToolkit.Debugging.ViewModels.Stubs
@@ -18,7 +18,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels.Stubs
     /// <summary>
     /// A stub type - a hack really so that we could show the app object in the visual tree view.
     /// </summary>
-    /// <seealso cref="Windows.UI.Xaml.Controls.Control" />
+    /// <seealso cref="Microsoft.UI.Xaml.Controls.Control" />
     internal class Application : Control
     {
         private static void Clone(ResourceDictionary source, ResourceDictionary target)
@@ -51,7 +51,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels.Stubs
 
         public Application()
         {
-            Clone(Windows.UI.Xaml.Application.Current.Resources, this.Resources);
+            Clone(Microsoft.UI.Xaml.Application.Current.Resources, this.Resources);
         }
     }
 }
@@ -75,9 +75,9 @@ namespace WinRTXamlToolkit.Debugging.ViewModels
             this.GetPropertyLists();
             this.Build();
 #pragma warning restore 4014
-            Window.Current.CoreWindow.KeyDown += this.OnKeyDown;
-            Window.Current.CoreWindow.KeyUp += this.OnKeyUp;
-            Window.Current.CoreWindow.PointerMoved += this.OnPointerMoved;
+            App.Window.CoreWindow.KeyDown += this.OnKeyDown;
+            App.Window.CoreWindow.KeyUp += this.OnKeyUp;
+            App.Window.CoreWindow.PointerMoved += this.OnPointerMoved;
         }
         #endregion
 
@@ -257,7 +257,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels
         internal async Task SelectElementUnderPointerAsync(bool showDebugger = true)
         {
             var roots =
-                VisualTreeHelper.GetOpenPopups(Window.Current)
+                VisualTreeHelper.GetOpenPopups(App.Window)
                     .Where(p => p.Child != null)
                     .Select(p => p.Child)
                     .Reverse()
@@ -527,7 +527,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels
                 this.RootElements.Add(new DependencyObjectViewModel(this, null, rootElement));
             }
 
-            foreach (var popup in VisualTreeHelper.GetOpenPopups(Window.Current))
+            foreach (var popup in VisualTreeHelper.GetOpenPopups(App.Window))
             {
                 this.RootElements.Add(new DependencyObjectViewModel(this, null, popup));
             }
@@ -542,7 +542,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels
             //else 
             //if (this.RootElements.Count == 1 &&
             //    this.RootElements[0] is DependencyObjectViewModel &&
-            //    ((DependencyObjectViewModel)this.RootElements[0]).Model == Window.Current.Content)
+            //    ((DependencyObjectViewModel)this.RootElements[0]).Model == App.Window.Content)
             //{
             //    await this.RootElements[0].RefreshAsync();
             //}
@@ -581,7 +581,7 @@ namespace WinRTXamlToolkit.Debugging.ViewModels
                 {
                     var root = ancestors.Count > 0 ? ancestors[ancestors.Count - 1] : fe;
                     Popup popupRoot = null;
-                    var popups = VisualTreeHelper.GetOpenPopups(Window.Current);
+                    var popups = VisualTreeHelper.GetOpenPopups(App.Window);
 
                     foreach (var openPopup in popups)
                     {

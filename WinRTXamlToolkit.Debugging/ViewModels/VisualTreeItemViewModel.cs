@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Debugging.ViewModels
+namespace WinRTXamlToolkit.Debugging.ViewModels
 {
     /// <summary>
     /// Base class of tree items in the VisualTreeViewModel.

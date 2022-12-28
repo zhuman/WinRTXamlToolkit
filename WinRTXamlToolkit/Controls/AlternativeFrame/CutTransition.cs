@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Controls
+namespace WinRTXamlToolkit.Controls
 {
     /// <summary>
     /// A simple cut page transition where the previous page is immediately replaced with the new page.

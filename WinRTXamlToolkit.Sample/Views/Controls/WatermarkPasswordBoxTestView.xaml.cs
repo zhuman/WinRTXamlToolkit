@@ -1,5 +1,5 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Sample.Views
 {
@@ -78,7 +78,7 @@ namespace WinRTXamlToolkit.Sample.Views
     ////        while (true)
     ////        {
     ////            await Task.Delay(1000);
-    ////            await Window.Current.Dispatcher.RunAsync(
+    ////            await App.Window.Dispatcher.RunAsync(
     ////                CoreDispatcherPriority.Normal,
     ////                () =>
     ////                {

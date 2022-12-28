@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Windows.UI.Xaml;
+using System.Collections.Generic;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Debugging.ViewModels.ResourceBrowser
 {

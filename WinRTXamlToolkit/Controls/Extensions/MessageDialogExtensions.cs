@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Popups;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {
@@ -63,7 +63,9 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// <exception cref="System.InvalidOperationException">This method can only be invoked from UI thread.</exception>
         public static async Task<IUICommand> ShowQueuedAsync(this MessageDialog dialog)
         {
-            if (!Window.Current.Dispatcher.HasThreadAccess)
+            if (!/*
+                TODO UA306_A2: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
+            */App.Window.Dispatcher.HasThreadAccess)
             {
                 throw new InvalidOperationException("This method can only be invoked from UI thread.");
             }
@@ -92,7 +94,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// <exception cref="System.InvalidOperationException">This method can only be invoked from UI thread.</exception>
         public static async Task<IUICommand> ShowIfPossibleAsync(this MessageDialog dialog)
         {
-            if (!Window.Current.Dispatcher.HasThreadAccess)
+            if (!App.Window.Dispatcher.HasThreadAccess)
             {
                 throw new InvalidOperationException("This method can only be invoked from UI thread.");
             }

@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using System.Linq;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {
@@ -19,7 +19,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         public static void MoveFocusForward(this Control control)
         {
             //TODO: Add support for TabIndex and TabNavigation.
-            var root = Window.Current.Content;
+            var root = App.Window.Content;
             var focusable =
                 root.GetDescendantsOfType<Control>()
                     .Where(d => d.IsTabStop)

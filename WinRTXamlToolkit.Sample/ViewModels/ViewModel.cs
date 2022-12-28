@@ -1,4 +1,4 @@
-﻿using WinRTXamlToolkit.Sample.Common;
+using WinRTXamlToolkit.Sample.Common;
 
 namespace WinRTXamlToolkit.Sample.ViewModels
 {

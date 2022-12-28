@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {

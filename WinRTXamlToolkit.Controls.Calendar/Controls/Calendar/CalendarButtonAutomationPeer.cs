@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -7,11 +7,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using WinRTXamlToolkit.Controls;
 using WinRTXamlToolkit.Controls.Primitives;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Controls;
 
 [assembly: SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes", Scope = "member", Target = "WinRTXamlToolkit.Automation.Peers.CalendarButtonAutomationPeer.#WinRTXamlToolkit.Automation.Provider.IGridItemProvider.Column", Justification = "WPF Compatibility")]
 [assembly: SuppressMessage("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes", Scope = "member", Target = "WinRTXamlToolkit.Automation.Peers.CalendarButtonAutomationPeer.#WinRTXamlToolkit.Automation.Provider.IGridItemProvider.ColumnSpan", Justification = "WPF Compatibility")]

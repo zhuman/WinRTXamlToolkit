@@ -1,7 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Debugging.ViewModels.ResourceBrowser
 {

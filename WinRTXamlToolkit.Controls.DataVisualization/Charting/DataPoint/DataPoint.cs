@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -7,9 +7,9 @@ using System;
 using System.Globalization;
 using System.Linq;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 {
@@ -922,7 +922,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
             GoToCurrentRevealState();
         }
 
-        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerEntered(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerEntered(e);
 
@@ -932,7 +932,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
             }
         }
 
-        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerExited(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerExited(e);
 
@@ -942,7 +942,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
             }
         }
 
-        protected override void OnPointerPressed(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerPressed(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
             {

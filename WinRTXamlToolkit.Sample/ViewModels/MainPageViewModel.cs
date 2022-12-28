@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -451,7 +451,9 @@ namespace WinRTXamlToolkit.Sample.ViewModels
 
         private async void StartCameraCaptureUITest()
         {
-            var dialog = new CameraCaptureUI();
+            var dialog = new /*
+                TODO UA306_B: UWP CameraCaptureUI : Windows.Media.Capture.CameraCaptureUI is not yet supported in WindowsAppSDK. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+            */CameraCaptureUI();
             await dialog.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
         }
     }

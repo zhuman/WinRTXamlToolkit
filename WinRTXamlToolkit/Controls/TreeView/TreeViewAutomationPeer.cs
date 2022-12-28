@@ -6,9 +6,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using WinRTXamlToolkit.Controls;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Automation.Provider;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Automation.Provider;
+using Microsoft.UI.Xaml.Controls;
 using TreeView = WinRTXamlToolkit.Controls.TreeView;
 using TreeViewItem = WinRTXamlToolkit.Controls.TreeViewItem;
 

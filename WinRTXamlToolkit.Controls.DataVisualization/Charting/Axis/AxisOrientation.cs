@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
+namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 {
     /// <summary>
     /// Specifies the orientation of an axis.

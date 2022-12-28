@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -10,10 +10,10 @@ using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 {
@@ -70,7 +70,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
                 foreach (SeriesDefinition newDefinition in newItems.CastWrapper<SeriesDefinition>())
                 {
                     Shape dataShape = CreateDataShape();
-                    dataShape.SetBinding(Shape.StyleProperty, new Binding(){Path=new Windows.UI.Xaml.PropertyPath("ActualDataShapeStyle") , Source = newDefinition });
+                    dataShape.SetBinding(Shape.StyleProperty, new Binding(){Path=new Microsoft.UI.Xaml.PropertyPath("ActualDataShapeStyle") , Source = newDefinition });
                     SeriesDefinitionShapes[newDefinition] = dataShape;
                 }
                 SynchronizeSeriesDefinitionShapes(null, newItems.CastWrapper<SeriesDefinition>());

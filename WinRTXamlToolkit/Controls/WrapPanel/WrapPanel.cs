@@ -1,4 +1,4 @@
-﻿// Ported from Silverlight Toolkit.
+// Ported from Silverlight Toolkit.
 // (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
@@ -9,8 +9,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -105,9 +105,9 @@ namespace WinRTXamlToolkit.Controls
         /// Gets or sets the direction in which child elements are arranged.
         /// </summary>
         /// <value>
-        /// One of the <see cref="T:Windows.UI.Xaml.Controls.Orientation" />
+        /// One of the <see cref="T:Microsoft.UI.Xaml.Controls.Orientation" />
         /// values.  The default is
-        /// <see cref="F:Windows.UI.Xaml.Controls.Orientation.Horizontal" />.
+        /// <see cref="F:Microsoft.UI.Xaml.Controls.Orientation.Horizontal" />.
         /// </value>
         public Orientation Orientation
         {
@@ -226,7 +226,7 @@ namespace WinRTXamlToolkit.Controls
         /// Measures the child elements of a
         /// <see cref="T:WinRTXamlToolkit.Controls.WrapPanel" /> in anticipation
         /// of arranging them during the
-        /// <see cref="Windows.UI.Xaml.FrameworkElement.ArrangeOverride(Windows.Foundation.Size)" />
+        /// <see cref="Microsoft.UI.Xaml.FrameworkElement.ArrangeOverride(Windows.Foundation.Size)" />
         /// pass.
         /// </summary>
         /// <param name="constraint">

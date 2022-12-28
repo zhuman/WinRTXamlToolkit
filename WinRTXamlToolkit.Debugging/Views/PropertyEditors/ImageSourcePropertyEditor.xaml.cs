@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using WinRTXamlToolkit.Debugging.ViewModels;
 using Windows.Storage.Pickers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
 {
@@ -84,7 +84,9 @@ namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
         {
             try
             {
-                var fop = new FileOpenPicker();
+                var fop = /* TODO You should replace 'App.WindowHandle' with the your window's handle (HWND) 
+            Read more on retrieving window handle here: https://docs.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd */
+        InitializeWithWindow(new FileOpenPicker(), App.WindowHandle);
                 fop.FileTypeFilter.Add(".jpg");
                 fop.FileTypeFilter.Add(".png");
                 fop.FileTypeFilter.Add(".gif");
@@ -109,5 +111,10 @@ namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
             {
             }
         }
+                        private static FileOpenPicker InitializeWithWindow(FileOpenPicker obj, IntPtr windowHandle)
+                        {
+                            WinRT.Interop.InitializeWithWindow.Initialize(obj, windowHandle);
+                            return obj;
+                        }
     }
 }

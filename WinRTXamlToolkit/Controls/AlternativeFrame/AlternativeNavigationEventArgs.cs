@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Navigation;
 
 namespace WinRTXamlToolkit.Controls
 {

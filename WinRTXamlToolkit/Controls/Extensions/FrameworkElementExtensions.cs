@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using Windows.Foundation;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {
@@ -363,7 +363,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         {
             get
             {
-                return _defaultCursor ?? (_defaultCursor = Window.Current.CoreWindow.PointerCursor);
+                return _defaultCursor ?? (_defaultCursor = App.Window.CoreWindow.PointerCursor);
             }
         }
         #endregion
@@ -396,11 +396,11 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             if (_isHovering)
             {
-                Window.Current.CoreWindow.PointerCursor = DefaultCursor;
+                App.Window.CoreWindow.PointerCursor = DefaultCursor;
             }
         }
 
-        private void OnPointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnPointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
             {
@@ -409,12 +409,12 @@ namespace WinRTXamlToolkit.Controls.Extensions
             }
         }
 
-        private void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnPointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (e.Pointer.PointerDeviceType == Windows.Devices.Input.PointerDeviceType.Mouse)
             {
                 _isHovering = false;
-                Window.Current.CoreWindow.PointerCursor = DefaultCursor;
+                App.Window.CoreWindow.PointerCursor = DefaultCursor;
             }
         }
 
@@ -422,7 +422,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         {
             if (_defaultCursor == null)
             {
-                _defaultCursor = Window.Current.CoreWindow.PointerCursor;
+                _defaultCursor = App.Window.CoreWindow.PointerCursor;
             }
 
             var cursor = FrameworkElementExtensions.GetCursor(_control);
@@ -431,11 +431,11 @@ namespace WinRTXamlToolkit.Controls.Extensions
             {
                 if (cursor != null)
                 {
-                    Window.Current.CoreWindow.PointerCursor = cursor;
+                    App.Window.CoreWindow.PointerCursor = cursor;
                 }
                 else
                 {
-                    Window.Current.CoreWindow.PointerCursor = DefaultCursor;
+                    App.Window.CoreWindow.PointerCursor = DefaultCursor;
                 }
             }
         }

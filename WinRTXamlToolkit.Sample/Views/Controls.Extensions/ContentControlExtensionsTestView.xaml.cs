@@ -1,6 +1,6 @@
-﻿using WinRTXamlToolkit.Controls.Extensions;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using WinRTXamlToolkit.Controls.Extensions;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using WinRTXamlToolkit.Controls;
 
 namespace WinRTXamlToolkit.Sample.Views

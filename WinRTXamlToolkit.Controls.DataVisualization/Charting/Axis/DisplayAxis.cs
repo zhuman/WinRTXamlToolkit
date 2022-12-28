@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -9,10 +9,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
 
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
@@ -607,7 +607,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 
                 if (this.Orientation == AxisOrientation.Y)
                 {
-                    this.OrientedPanel.Orientation = Windows.UI.Xaml.Controls.Orientation.Vertical;
+                    this.OrientedPanel.Orientation = Microsoft.UI.Xaml.Controls.Orientation.Vertical;
                     this.OrientedPanel.IsReversed = true;
 
                     if (this.Location == AxisLocation.Left || this.Location == AxisLocation.Right)
@@ -634,14 +634,14 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 
                         if (this.Location == AxisLocation.Right)
                         {
-                            AxisGrid.Mirror(Windows.UI.Xaml.Controls.Orientation.Vertical);
+                            AxisGrid.Mirror(Microsoft.UI.Xaml.Controls.Orientation.Vertical);
                             this.TitleLayoutTransformControl.Transform = new RotateTransform { Angle = 90 };
                         }
                     }
                 }
                 else if (this.Orientation == AxisOrientation.X)
                 {
-                    this.OrientedPanel.Orientation = Windows.UI.Xaml.Controls.Orientation.Horizontal;
+                    this.OrientedPanel.Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal;
                     this.OrientedPanel.IsReversed = false;
 
                     if (this.Location == AxisLocation.Top || this.Location == AxisLocation.Bottom)
@@ -667,7 +667,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 
                         if (this.Location == AxisLocation.Top)
                         {
-                            AxisGrid.Mirror(Windows.UI.Xaml.Controls.Orientation.Horizontal);
+                            AxisGrid.Mirror(Microsoft.UI.Xaml.Controls.Orientation.Horizontal);
                         }
                     }
                 }

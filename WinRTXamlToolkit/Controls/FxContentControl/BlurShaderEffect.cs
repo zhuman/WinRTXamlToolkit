@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Media.Imaging;
 using WinRTXamlToolkit.Imaging;
 
 namespace WinRTXamlToolkit.Controls.Fx

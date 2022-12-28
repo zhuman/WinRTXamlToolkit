@@ -1,14 +1,14 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
 
 using System;
 using WinRTXamlToolkit.Automation.Peers;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Automation.Peers;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Controls.Primitives
 {
@@ -187,7 +187,7 @@ namespace WinRTXamlToolkit.Controls.Primitives
         /// handled in some situations, you should use the Click event instead
         /// to detect a button click.
         /// </remarks>
-        protected override void OnPointerPressed(global::Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerPressed(global::Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerPressed(e);
 

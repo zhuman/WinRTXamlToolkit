@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="VisualTreeDebugger.cs" company="One Dev Job">
 // Filip Skakun, 2013.
 // </copyright>
@@ -16,11 +16,11 @@ namespace WinRTXamlToolkit.Debugging
     using System.Threading.Tasks;
     using Windows.ApplicationModel;
     using Windows.Foundation;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml.Input;
-    using Windows.UI.Xaml.Media;
-    using Windows.UI.Xaml.Media.Imaging;
+    using Microsoft.UI.Xaml;
+    using Microsoft.UI.Xaml.Controls;
+    using Microsoft.UI.Xaml.Input;
+    using Microsoft.UI.Xaml.Media;
+    using Microsoft.UI.Xaml.Media.Imaging;
 #elif WINDOWS_PHONE
     using System;
     using System.Collections.Generic;
@@ -104,7 +104,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnBreakOnLoadedChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -170,7 +170,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnBreakOnTapChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -255,7 +255,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnBreakOnLayoutUpdatedChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -426,7 +426,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnTraceOnLoadedChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -492,7 +492,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnTraceOnTapChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -576,7 +576,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The DependencyObject.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+        /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
         /// instance containing the event data.</param>
         private static void OnTraceOnLayoutUpdatedChanged(
             DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -602,7 +602,7 @@ namespace WinRTXamlToolkit.Debugging
         /// The sender.
         /// </param>
         /// <param name="e">
-        /// The <see cref="Windows.UI.Xaml.RoutedEventArgs"/> instance containing
+        /// The <see cref="Microsoft.UI.Xaml.RoutedEventArgs"/> instance containing
         /// the event data.</param>
         private static void TraceOnControlLoaded(object sender, RoutedEventArgs e)
         {
@@ -741,7 +741,7 @@ namespace WinRTXamlToolkit.Debugging
                     frameworkElement.ActualHeight);
 
 #if NETFX_CORE
-                var rootVisual = Window.Current.Content;
+                var rootVisual = App.Window.Content;
                 var pos =
                     frameworkElement
                         .TransformToVisual(rootVisual)

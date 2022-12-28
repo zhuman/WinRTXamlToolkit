@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using Windows.UI.Xaml.Media;
+using System.Windows.Input;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Sample.ViewModels
 {

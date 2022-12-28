@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WinRTXamlToolkit.Tools;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {
@@ -28,7 +28,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         {
             if (window == null)
             {
-                window = Window.Current;
+                window = App.Window;
             }
 
             if (window == null)
@@ -323,7 +323,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
                 return false;
             }
 
-            if (Window.Current == null)
+            if (App.Window == null)
             {
                 // This may happen when a picker or CameraCaptureUI etc. is open.
                 return false;
@@ -333,7 +333,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             return
                 root != null && dob.GetAncestors(includeStart: true).Contains(root) ||
-                VisualTreeHelper.GetOpenPopups(Window.Current)
+                VisualTreeHelper.GetOpenPopups(App.Window)
                     .Any(popup => dob.GetAncestors(includeStart: true).Contains(popup.Child));
         }
 
@@ -353,7 +353,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             if (relativeTo == null)
             {
-                relativeTo = Window.Current.Content;
+                relativeTo = App.Window.Content;
             }
 
             if (relativeTo == null)
@@ -408,7 +408,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             if (relativeTo == null)
             {
-                relativeTo = Window.Current.Content as FrameworkElement;
+                relativeTo = App.Window.Content as FrameworkElement;
             }
 
             if (relativeTo == null)

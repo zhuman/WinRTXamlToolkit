@@ -1,10 +1,10 @@
-﻿#if SILVERLIGHT
+#if SILVERLIGHT
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using SilverlightWriteableBitmapFun;
 #elif NETFX_CORE
 using System.Collections.Generic;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 #endif
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using WinRTXamlToolkit.Common;
@@ -7,10 +7,10 @@ using Windows.Devices.Input;
 using Windows.UI.Core;
 using Windows.UI.Input;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -323,8 +323,8 @@ namespace WinRTXamlToolkit.Controls
             //}
 
             EdgeGesture.GetForCurrentView().Completed += OnEdgeGestureCompleted;
-            Window.Current.CoreWindow.PointerPressed += OnCoreWindowPointerPressed;
-            Window.Current.CoreWindow.PointerReleased += OnCoreWindowPointerReleased;
+            App.Window.CoreWindow.PointerPressed += OnCoreWindowPointerPressed;
+            App.Window.CoreWindow.PointerReleased += OnCoreWindowPointerReleased;
 
             if (!IsOpen)
             {
@@ -369,8 +369,8 @@ namespace WinRTXamlToolkit.Controls
             //}
 
             EdgeGesture.GetForCurrentView().Completed -= OnEdgeGestureCompleted;
-            Window.Current.CoreWindow.PointerPressed -= OnCoreWindowPointerPressed;
-            Window.Current.CoreWindow.PointerReleased -= OnCoreWindowPointerReleased;
+            App.Window.CoreWindow.PointerPressed -= OnCoreWindowPointerPressed;
+            App.Window.CoreWindow.PointerReleased -= OnCoreWindowPointerReleased;
         } 
         #endregion
 
@@ -433,10 +433,10 @@ namespace WinRTXamlToolkit.Controls
             if (this.IsLightDismissEnabled &&
                 this.CanDismiss && 
                 this.IsOpen &&
-                Window.Current != null &&
-                Window.Current.Content != null)
+                App.Window != null &&
+                App.Window.Content != null)
             {
-                var windowToAppBarTransform = Window.Current.Content.TransformToVisual(this);
+                var windowToAppBarTransform = App.Window.Content.TransformToVisual(this);
                 var appBarPosition = windowToAppBarTransform.TransformPoint(args.CurrentPoint.Position);
                 var appBarBounds = this.GetBoundingRect(this);
 

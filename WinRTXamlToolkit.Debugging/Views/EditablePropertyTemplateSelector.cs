@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Reflection;
 using Windows.UI.Text;
 using WinRTXamlToolkit.Debugging.Controls;
 using WinRTXamlToolkit.Debugging.ViewModels;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Debugging.Views
 {

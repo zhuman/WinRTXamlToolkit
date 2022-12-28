@@ -1,7 +1,7 @@
-﻿using WinRTXamlToolkit.Debugging.ViewModels;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using WinRTXamlToolkit.Debugging.ViewModels;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
 {

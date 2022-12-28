@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using WinRTXamlToolkit.Controls;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Sample.Views
 {

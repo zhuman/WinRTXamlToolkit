@@ -1,8 +1,8 @@
-﻿using System.Linq;
+using System.Linq;
 using WinRTXamlToolkit.Controls.Extensions;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -129,7 +129,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the GotFocus event occurs.
         /// </summary>
         /// <param name="e">The data for the event.</param>
-        protected override void OnGotFocus(Windows.UI.Xaml.RoutedEventArgs e)
+        protected override void OnGotFocus(Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             base.OnGotFocus(e);
             UpdateWatermarkVisualState(true);
@@ -139,7 +139,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the LostFocus event occurs.
         /// </summary>
         /// <param name="e">The data for the event.</param>
-        protected override void OnLostFocus(Windows.UI.Xaml.RoutedEventArgs e)
+        protected override void OnLostFocus(Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             base.OnLostFocus(e);
             UpdateWatermarkVisualState(false);

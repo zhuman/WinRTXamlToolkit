@@ -1,12 +1,11 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Debugging.Views;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using WinRTXamlToolkit.IO.Extensions;
 using System.Threading.Tasks;
 
@@ -91,7 +90,7 @@ namespace WinRTXamlToolkit.Debugging
                 Child = _debugConsoleView,
             };
 
-            var panel = Window.Current.Content.GetFirstDescendantOfType<Panel>();
+            var panel = App.Window.Content.GetFirstDescendantOfType<Panel>();
 
             if (panel != null)
             {
@@ -101,7 +100,7 @@ namespace WinRTXamlToolkit.Debugging
             _popup.IsOpen = true;
 
             UpdateLayout();
-            Window.Current.SizeChanged += this.OnWindowSizeChanged;
+            App.Window.SizeChanged += this.OnWindowSizeChanged;
         }
 
         /// <summary>
@@ -161,8 +160,8 @@ namespace WinRTXamlToolkit.Debugging
         {
             _popup.HorizontalOffset = _instanceMargin.Left;
             _popup.VerticalOffset = _instanceMargin.Top;
-            _debugConsoleView.Width = Window.Current.Bounds.Width - _instanceMargin.Left - _instanceMargin.Right;
-            _debugConsoleView.Height = Window.Current.Bounds.Height - _instanceMargin.Top - _instanceMargin.Bottom;
+            _debugConsoleView.Width = App.Window.Bounds.Width - _instanceMargin.Left - _instanceMargin.Right;
+            _debugConsoleView.Height = App.Window.Bounds.Height - _instanceMargin.Top - _instanceMargin.Bottom;
         }
 
         public static void Trace(string format, params object[] args)

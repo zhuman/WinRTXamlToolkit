@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using WinRTXamlToolkit.Tools;
 
 namespace WinRTXamlToolkit.Sample.Views
@@ -179,7 +179,7 @@ namespace WinRTXamlToolkit.Sample.Views
                 });
         }
 
-        private void NumberOfIitemsNumericUpDown_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void NumberOfIitemsNumericUpDown_ValueChanged(object sender, Microsoft.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             this.ThrottledUpdate(() =>
             {

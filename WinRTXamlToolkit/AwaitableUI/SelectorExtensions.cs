@@ -1,11 +1,11 @@
-﻿#if SILVERLIGHT
+#if SILVERLIGHT
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 #elif NETFX_CORE
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 #elif WPF
 using System.Threading.Tasks;
 using System.Windows.Controls;

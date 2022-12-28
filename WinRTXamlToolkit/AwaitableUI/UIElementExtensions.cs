@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Windows.UI.Xaml;
+using System.Threading.Tasks;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.AwaitableUI
 {

@@ -1,11 +1,11 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
 
 using System.Diagnostics.CodeAnalysis;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Data;
 
 [assembly: SuppressMessage("Compatibility", "SWC4000:GeneralWPFCompatibilityRule", MessageId = "HierarchicalDataTemplate.get_ItemsSource(), System.Windows.Data.Binding (Silverlight) vs System.Windows.Data.BindingBase (wpf)", Justification = "BindingBase isn't sufficiently rich enough for this purpose.  We use Binding instead, just like FrameworkElement.SetBinding.")]
 

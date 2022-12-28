@@ -1,7 +1,7 @@
-﻿using WinRTXamlToolkit.Controls;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using WinRTXamlToolkit.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Sample.Views
 {

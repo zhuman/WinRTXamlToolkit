@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using WinRTXamlToolkit.AwaitableUI;
 using Windows.ApplicationModel;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Debug = System.Diagnostics.Debug;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media;
 using Windows.Foundation;
 
 namespace WinRTXamlToolkit.Controls.Extensions

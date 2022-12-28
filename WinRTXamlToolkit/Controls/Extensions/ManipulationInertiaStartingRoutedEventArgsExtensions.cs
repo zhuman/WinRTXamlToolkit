@@ -1,11 +1,11 @@
-﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
+using System;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {
     /// <summary>
-    /// Implements extensions of the <see cref="ManipulationInertiaStartingRoutedEventArgs"/> class that defines the argument of the <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
+    /// Implements extensions of the <see cref="ManipulationInertiaStartingRoutedEventArgs"/> class that defines the argument of the <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
     /// </summary>
     public static class ManipulationInertiaStartingRoutedEventArgsExtensions
     {
@@ -61,13 +61,13 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
         /// <summary>
         /// Gets the expected duration of a flick as measured in seconds.
-        /// A flick starts on <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/>
-        /// event and ends on <see cref="Windows.UI.Xaml.UIElement.ManipulationCompleted"/> event.
+        /// A flick starts on <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/>
+        /// event and ends on <see cref="Microsoft.UI.Xaml.UIElement.ManipulationCompleted"/> event.
         /// </summary>
         /// <remarks>
         /// Note that the duration is estimated and may vary by a few percent based on testing.
         /// </remarks>
-        /// <param name="e">The event argument from the <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.</param>
+        /// <param name="e">The event argument from the <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.</param>
         /// <returns>The expected duration of the flick as measured in seconds.</returns>
         public static double GetExpectedDisplacementDuration(this ManipulationInertiaStartingRoutedEventArgs e)
         {
@@ -98,13 +98,13 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// <summary>
         /// Gets the expected displacement at the end of the flick.
         /// A flick starts on 
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationCompleted"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationCompleted"/> event.
         /// The displacement is the length of the vector from e.Cumulative.Translation at the beginning of the flick
         /// to the e.Cumulative.Translation at the end of the flick.
         /// </summary>
         /// <param name="e">The event argument from the
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
         /// </param>
         /// <returns>The displacement of the flick.</returns>
         public static double GetExpectedDisplacement(this ManipulationInertiaStartingRoutedEventArgs e)
@@ -133,14 +133,14 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// <summary>
         /// Gets the X component of the expected displacement vector at the end of the flick.
         /// A flick starts on 
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationCompleted"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationCompleted"/> event.
         /// The displacement is the vector from e.Cumulative.Translation at the beginning of the flick
         /// to the e.Cumulative.Translation at the end of the flick.
         /// </summary>
         /// <param name="e">
         /// The event argument from the
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
         /// </param>
         /// <returns>The X component of the displacement of the flick.</returns>
         public static double GetExpectedDisplacementX(this ManipulationInertiaStartingRoutedEventArgs e)
@@ -176,13 +176,13 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// <summary>
         /// Gets the Y component of the expected displacement vector at the end of the flick.
         /// A flick starts on
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationCompleted"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event and ends on
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationCompleted"/> event.
         /// The displacement is the vector from e.Cumulative.Translation at the beginning of the flick
         /// to the e.Cumulative.Translation at the end of the flick.
         /// </summary>
         /// <param name="e">The event argument from the
-        /// <see cref="Windows.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
+        /// <see cref="Microsoft.UI.Xaml.UIElement.ManipulationInertiaStarting"/> event.
         /// </param>
         /// <returns>The Y component of the displacement of the flick.</returns>
         public static double GetExpectedDisplacementY(this ManipulationInertiaStartingRoutedEventArgs e)

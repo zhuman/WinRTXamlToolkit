@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Sample.ViewModels.Controls.Extensions
+namespace WinRTXamlToolkit.Sample.ViewModels.Controls.Extensions
 {
     public class TextBoxValidationTestPageViewModel : ViewModel
     {

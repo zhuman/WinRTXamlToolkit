@@ -1,6 +1,6 @@
-﻿using System;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using System;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Converters
 {

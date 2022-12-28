@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 {
@@ -50,7 +50,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
                 LinearAxis linearAxis = new LinearAxis { Orientation = DependentAxisOrientation, ShowGridLines = true };
                 if (IsStacked100)
                 {
-                    Windows.UI.Xaml.Style style = new Style(typeof(AxisLabel));
+                    Microsoft.UI.Xaml.Style style = new Style(typeof(AxisLabel));
                     style.Setters.Add(new Setter(AxisLabel.StringFormatProperty, "{0}%"));
                     linearAxis.AxisLabelStyle = style;
                 }

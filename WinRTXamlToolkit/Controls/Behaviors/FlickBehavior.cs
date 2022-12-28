@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Interactivity;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Controls.Behaviors
 {

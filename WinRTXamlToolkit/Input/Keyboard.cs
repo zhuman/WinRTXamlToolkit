@@ -1,6 +1,6 @@
-﻿////using Windows.System;
+////using Windows.System;
 ////using Windows.UI.Core;
-////using Windows.UI.Xaml;
+////using Microsoft.UI.Xaml;
 
 ////namespace WinRTXamlToolkit.Input
 ////{
@@ -15,7 +15,7 @@
 
 ////        private static void Test()
 ////        {
-////            var currentWindow = Window.Current;
+////            var currentWindow = App.Window;
 ////            var coreWindow = currentWindow.CoreWindow;
 ////            var s = coreWindow.GetAsyncKeyState(VirtualKey.Shift);
 

@@ -1,7 +1,7 @@
-﻿using System.Windows.Input;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using System.Windows.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -133,7 +133,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the Tapped event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnTapped(Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        protected override void OnTapped(Microsoft.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             base.OnTapped(e);
             
@@ -157,7 +157,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the ManipulationStarting event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnManipulationStarting(Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs e)
+        protected override void OnManipulationStarting(Microsoft.UI.Xaml.Input.ManipulationStartingRoutedEventArgs e)
         {
             //base.OnManipulationStarting(e);
         }
@@ -166,7 +166,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the ManipulationStarted event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnManipulationStarted(Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
+        protected override void OnManipulationStarted(Microsoft.UI.Xaml.Input.ManipulationStartedRoutedEventArgs e)
         {
             //base.OnManipulationStarted(e);
         }

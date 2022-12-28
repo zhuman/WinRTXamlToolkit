@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using WinRTXamlToolkit.IO.Extensions;
 using WinRTXamlToolkit.IO.Serialization;
 using Windows.Storage;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 
 namespace WinRTXamlToolkit.Sample.Views
 {

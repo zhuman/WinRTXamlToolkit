@@ -1,4 +1,4 @@
-﻿
+
 namespace WinRTXamlToolkit.Controls
 {
     public sealed partial class AutoCompleteTextBox

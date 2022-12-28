@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Shapes;
 using WinRTXamlToolkit.AwaitableUI;
 using WinRTXamlToolkit.Controls.Common;
 using WinRTXamlToolkit.Controls.Extensions;
@@ -1859,7 +1859,7 @@ namespace WinRTXamlToolkit.Controls
                     break;
                 case WindowStartupLocation.CenterScreen:
                     var parentPosition = parent.GetPosition();
-                    var root = Window.Current.Content as FrameworkElement;
+                    var root = App.Window.Content as FrameworkElement;
                     if (root != null)
                     {
                         this.X = Math.Round(root.ActualWidth / 2 - this.ActualWidth / 2 - parentPosition.X);
@@ -2430,7 +2430,7 @@ namespace WinRTXamlToolkit.Controls
             else
             {
                 var parentPosition = parent.GetPosition();
-                var root = Window.Current.Content as FrameworkElement;
+                var root = App.Window.Content as FrameworkElement;
 
                 if (root == null)
                 {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -10,9 +10,9 @@ using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Debugging.Commands;
 using WinRTXamlToolkit.Debugging.Common;
 using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace WinRTXamlToolkit.Debugging.ViewModels
 {

@@ -1,4 +1,4 @@
-﻿//#define TRACEDEVICEDETAILS
+//#define TRACEDEVICEDETAILS
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,12 +12,12 @@ using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media.Animation;
 using WinRTXamlToolkit.AwaitableUI;
-using LayoutPanel = Windows.UI.Xaml.Controls.Panel;
+using LayoutPanel = Microsoft.UI.Xaml.Controls.Panel;
 using Panel = Windows.Devices.Enumeration.Panel;
 
 namespace WinRTXamlToolkit.Controls

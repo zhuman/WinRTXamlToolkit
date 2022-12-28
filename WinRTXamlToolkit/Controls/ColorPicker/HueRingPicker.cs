@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using WinRTXamlToolkit.Async;
 using WinRTXamlToolkit.AwaitableUI;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using WinRTXamlToolkit.Imaging;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -592,7 +592,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnBreakOnLoadedChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -658,7 +658,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnBreakOnTapChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -686,7 +686,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The sender.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.Input.TappedRoutedEventArgs"/> instance
+    //    /// The <see cref="Microsoft.UI.Xaml.Input.TappedRoutedEventArgs"/> instance
     //    /// containing the event data.
     //    /// </param>
     //    private static async void BreakOnControlTapped(object sender, TappedRoutedEventArgs e)
@@ -753,7 +753,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnBreakOnLayoutUpdatedChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -877,7 +877,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnTraceOnLoadedChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -943,7 +943,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnTraceOnTapChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -1015,7 +1015,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The DependencyObject.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.DependencyPropertyChangedEventArgs"/>
+    //    /// The <see cref="Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs"/>
     //    /// instance containing the event data.</param>
     //    private static void OnTraceOnLayoutUpdatedChanged(
     //        DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -1034,7 +1034,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The sender.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.RoutedEventArgs"/> instance containing
+    //    /// The <see cref="Microsoft.UI.Xaml.RoutedEventArgs"/> instance containing
     //    /// the event data.</param>
     //    private static void TraceOnControlLoaded(object sender, RoutedEventArgs e)
     //    {
@@ -1051,7 +1051,7 @@ namespace WinRTXamlToolkit.Controls
     //    /// The sender.
     //    /// </param>
     //    /// <param name="e">
-    //    /// The <see cref="Windows.UI.Xaml.Input.TappedRoutedEventArgs"/> instance
+    //    /// The <see cref="Microsoft.UI.Xaml.Input.TappedRoutedEventArgs"/> instance
     //    /// containing the event data.</param>
     //    private static void TraceOnControlTapped(object sender, TappedRoutedEventArgs e)
     //    {
@@ -1140,11 +1140,11 @@ namespace WinRTXamlToolkit.Controls
     //                frameworkElement.ActualHeight);
     //            var pos =
     //                frameworkElement
-    //                    .TransformToVisual(Window.Current.Content)
+    //                    .TransformToVisual(App.Window.Content)
     //                    .TransformPoint(new Point());
     //            var pos2 =
     //                frameworkElement
-    //                    .TransformToVisual(Window.Current.Content)
+    //                    .TransformToVisual(App.Window.Content)
     //                    .TransformPoint(
     //                        new Point(
     //                            frameworkElement.ActualWidth,

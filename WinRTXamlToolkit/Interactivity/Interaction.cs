@@ -1,10 +1,10 @@
-﻿// Credits to Joost van Schaik who created the original WinRT Behaviors.
+// Credits to Joost van Schaik who created the original WinRT Behaviors.
 // This namespace is based on his work.
 // It was however highly modified and is based on both his library
 // and the API of Silverlight's Interactivity namespace.
 using System.ComponentModel;
 using Windows.ApplicationModel;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Interactivity
 {

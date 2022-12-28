@@ -1,9 +1,9 @@
-﻿using Windows.System;
-using Windows.UI.Xaml.Input;
+using Windows.System;
+using Microsoft.UI.Xaml.Input;
 using WinRTXamlToolkit.Debugging.ViewModels;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
 {

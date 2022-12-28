@@ -1,5 +1,5 @@
-﻿using System.ComponentModel;
-using Windows.UI.Xaml.Controls;
+using System.ComponentModel;
+using Microsoft.UI.Xaml.Controls;
 using WinRTXamlToolkit.Debugging.ViewModels;
 
 namespace WinRTXamlToolkit.Debugging.Views

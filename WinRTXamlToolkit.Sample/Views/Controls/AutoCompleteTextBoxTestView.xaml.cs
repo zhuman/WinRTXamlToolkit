@@ -1,6 +1,6 @@
-﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using System;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using WinRTXamlToolkit.Controls;
 using WinRTXamlToolkit.Sample.ViewModels;
 
@@ -14,7 +14,7 @@ namespace WinRTXamlToolkit.Sample.Views
             this.DataContext = new AutoCompleteTextBoxTestsViewModel();
         }
 
-        private void FlipView_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
+        private void FlipView_SelectionChanged(object sender, Microsoft.UI.Xaml.Controls.SelectionChangedEventArgs e)
         {
             if (settingsGrid == null || controlGrid == null)
                 return;

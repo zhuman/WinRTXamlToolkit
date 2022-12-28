@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Debugging.ViewModels
+namespace WinRTXamlToolkit.Debugging.ViewModels
 {
     public class StubVisualTreeItemViewModel : VisualTreeItemViewModel
     {

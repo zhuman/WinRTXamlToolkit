@@ -1,6 +1,6 @@
-﻿using WinRTXamlToolkit.Debugging.ViewModels;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml;
+using WinRTXamlToolkit.Debugging.ViewModels;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
 using System;
 
 namespace WinRTXamlToolkit.Debugging.Views
@@ -34,7 +34,7 @@ namespace WinRTXamlToolkit.Debugging.Views
             }
         }
 
-        private void Border_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void Border_PointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             e.Handled = true;
         }

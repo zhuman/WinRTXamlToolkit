@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -7,7 +7,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -234,7 +234,9 @@ namespace WinRTXamlToolkit.Controls
         private void EnsureValidThread()
         {
             //if (Thread.CurrentThread != _dispatcherThread)
-            if (!Window.Current.Dispatcher.HasThreadAccess)
+            if (!/*
+                TODO UA306_A2: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
+            */App.Window.Dispatcher.HasThreadAccess)
             {
                 throw new NotSupportedException(Properties.Resources.CalendarCollection_MultiThreadedCollectionChangeNotSupported);
             }

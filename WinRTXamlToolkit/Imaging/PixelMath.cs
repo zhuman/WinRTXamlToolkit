@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Imaging
+namespace WinRTXamlToolkit.Imaging
 {
     /// <summary>
     /// Contains basic pixel processing helper methods for double- and byte-type pixel color components.

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.AwaitableUI
 {
@@ -50,7 +50,9 @@ namespace WinRTXamlToolkit.AwaitableUI
         /// <param name="mediaElement">The media element.</param>
         /// <param name="source">The source to play.</param>
         /// <returns></returns>
-        public static async Task<MediaElement> PlayToEndAsync(this MediaElement mediaElement, Uri source)
+        public static async Task</*
+                TODO UA306_E: UWP MediaElement : Microsoft.UI.Xaml.Controls.MediaElement is not yet supported in WindowsAppSDK. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/what-is-supported
+            */MediaElement> PlayToEndAsync(this MediaElement mediaElement, Uri source)
         {
             mediaElement.Source = source;
             return await mediaElement.WaitToCompleteAsync();

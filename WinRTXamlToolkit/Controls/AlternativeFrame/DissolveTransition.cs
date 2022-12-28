@@ -1,4 +1,4 @@
-﻿namespace WinRTXamlToolkit.Controls
+namespace WinRTXamlToolkit.Controls
 {
     /// <summary>
     /// Transition in which the new page fades in on top of the old page.

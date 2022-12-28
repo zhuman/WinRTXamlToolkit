@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -105,7 +105,7 @@ namespace WinRTXamlToolkit.Controls
         public static void GetMetaKeyState(out bool ctrl)
         {
             //ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
-            ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
+            ctrl = App.Window.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
         }
 
         /// <summary>
@@ -116,9 +116,9 @@ namespace WinRTXamlToolkit.Controls
         public static void GetMetaKeyState(out bool ctrl, out bool shift)
         {
             //ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
-            ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
+            ctrl = App.Window.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
             //shift = (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift;
-            shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
+            shift = App.Window.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
         }
     }
 }

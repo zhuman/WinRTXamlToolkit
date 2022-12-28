@@ -1,4 +1,4 @@
-﻿// (c) Copyright Microsoft Corporation.
+// (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
@@ -9,9 +9,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting.Primitives
 {
@@ -132,7 +132,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting.Primitives
             this.SizeChanged += EdgePanel_SizeChanged;
         }
 
-        void EdgePanel_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        void EdgePanel_SizeChanged(object sender, Microsoft.UI.Xaml.SizeChangedEventArgs e)
         {
             InvalidateMeasure();
         }

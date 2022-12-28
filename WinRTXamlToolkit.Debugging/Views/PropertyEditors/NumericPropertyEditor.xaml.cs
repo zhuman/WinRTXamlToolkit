@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using WinRTXamlToolkit.Controls;
 using WinRTXamlToolkit.Debugging.ViewModels;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Shapes;
 
 namespace WinRTXamlToolkit.Debugging.Views.PropertyEditors
 {

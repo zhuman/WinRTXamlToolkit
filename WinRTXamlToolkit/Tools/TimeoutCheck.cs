@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Tools
 {
@@ -129,14 +129,16 @@ namespace WinRTXamlToolkit.Tools
             }
         }
 
-        private CoreDispatcher _dispatcher;
+        private /*
+                TODO UA306_A1: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
+            */CoreDispatcher _dispatcher;
 
         /// <summary>
         /// Starts a timeout check.
         /// </summary>
         public void Start()
         {
-            _dispatcher = Window.Current.Dispatcher;
+            _dispatcher = App.Window.Dispatcher;
             _timeoutTimer.Start();
         }
 

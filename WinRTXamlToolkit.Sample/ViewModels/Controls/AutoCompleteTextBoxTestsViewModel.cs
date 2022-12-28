@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using WinRTXamlToolkit.Controls;
 using WinRTXamlToolkit.Sample.Commands;
 

@@ -1,11 +1,11 @@
-﻿//HSL and HSV conversions credits to Wikipedia contributors (http://en.wikipedia.org/wiki/HSL_and_HSV)
+//HSL and HSV conversions credits to Wikipedia contributors (http://en.wikipedia.org/wiki/HSL_and_HSV)
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Windows.UI;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Xaml.Markup;
 
 namespace WinRTXamlToolkit.Imaging
 {

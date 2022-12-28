@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 using WinRTXamlToolkit.Controls.Extensions;
 
 namespace WinRTXamlToolkit.Controls
@@ -665,7 +665,7 @@ namespace WinRTXamlToolkit.Controls
         private SuggestionPopupDisplaySide GetDisplaySide()
         {
             double textBoxBottomBound = this.GetSuggestionPopupVerticalEndCoordinate();
-            double windowBottomBound = Window.Current.Bounds.Bottom;
+            double windowBottomBound = App.Window.Bounds.Bottom;
 
             if (textBoxBottomBound > windowBottomBound)
             {
@@ -679,7 +679,7 @@ namespace WinRTXamlToolkit.Controls
 
         private double GetSuggestionPopupVerticalEndCoordinate()
         {
-            var textBoxTransform = this.textBox.TransformToVisual(Window.Current.Content);
+            var textBoxTransform = this.textBox.TransformToVisual(App.Window.Content);
             Point textBoxPosition = textBoxTransform.TransformPoint(new Point(0, 0));
             double autoCompletePresenterHeight = this.CalculateAutoCompleteListBoxHeight();
             double textBoxBottomBound = textBoxPosition.Y + textBox.ActualHeight + autoCompletePresenterHeight;

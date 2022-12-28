@@ -1,12 +1,12 @@
-﻿#if SILVERLIGHT
+#if SILVERLIGHT
 using System.Windows;
 using System.Threading.Tasks;
 #elif NETFX_CORE
 using System.Threading.Tasks;
 using WinRTXamlToolkit.Controls.Extensions;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 #elif WPF
 using System.Threading.Tasks;

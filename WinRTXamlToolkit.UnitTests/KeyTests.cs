@@ -1,4 +1,4 @@
-﻿using Windows.System;
+using Windows.System;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using WinRTXamlToolkit.Input;
 

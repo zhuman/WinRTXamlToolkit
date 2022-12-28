@@ -1,6 +1,6 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -107,12 +107,12 @@ namespace WinRTXamlToolkit.Controls
             this.OnPointerLeftItem();
         }
 
-        private void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnPointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.OnPointerLeftItem();
         }
 
-        private void OnPointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnPointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.OnPointerOverItem();
         }
@@ -122,14 +122,14 @@ namespace WinRTXamlToolkit.Controls
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">PointerArgs</param>
-        private void OnPointerCaptureLost(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void OnPointerCaptureLost(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.OnPointerLeftItem();
         }
 
         private void OnPointerLeftItem()
         {
-            this.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
+            this.Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent);
             this.Foreground = this.OriginalForegroundBrush;
         }
 

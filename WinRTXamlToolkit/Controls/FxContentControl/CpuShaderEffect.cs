@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace WinRTXamlToolkit.Controls.Fx
 {

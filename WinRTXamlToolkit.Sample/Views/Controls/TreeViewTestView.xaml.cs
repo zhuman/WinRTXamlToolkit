@@ -1,7 +1,7 @@
 using WinRTXamlToolkit.Sample.ViewModels.Controls;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using WinRTXamlToolkit.Controls;
 using System;
 using TreeView = WinRTXamlToolkit.Controls.TreeView;

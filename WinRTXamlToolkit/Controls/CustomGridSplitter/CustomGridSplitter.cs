@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -18,8 +18,8 @@ namespace WinRTXamlToolkit.Controls
     {
         /// <summary>
         /// Space is redistributed based on the value of the
-        /// Windows.UI.Xaml.FrameworkElement.HorizontalAlignment and
-        /// Windows.UI.Xaml.FrameworkElement.VerticalAlignment properties.
+        /// Microsoft.UI.Xaml.FrameworkElement.HorizontalAlignment and
+        /// Microsoft.UI.Xaml.FrameworkElement.VerticalAlignment properties.
         /// </summary>
         BasedOnAlignment = 0,
         /// <summary>
@@ -55,9 +55,9 @@ namespace WinRTXamlToolkit.Controls
     public enum GridResizeDirection
     {
         /// <summary>
-        /// Space is redistributed based on the values of the Windows.UI.Xaml.FrameworkElement.HorizontalAlignment,
-        /// Windows.UI.Xaml.FrameworkElement.VerticalAlignment, Windows.UI.Xaml.FrameworkElement.ActualWidth,
-        /// and Windows.UI.Xaml.FrameworkElement.ActualHeight properties of the WinRTXamlToolkit.Controls.CustomGridSplitter.
+        /// Space is redistributed based on the values of the Microsoft.UI.Xaml.FrameworkElement.HorizontalAlignment,
+        /// Microsoft.UI.Xaml.FrameworkElement.VerticalAlignment, Microsoft.UI.Xaml.FrameworkElement.ActualWidth,
+        /// and Microsoft.UI.Xaml.FrameworkElement.ActualHeight properties of the WinRTXamlToolkit.Controls.CustomGridSplitter.
         /// </summary>
         Auto = 0,
         /// <summary>
@@ -486,7 +486,7 @@ namespace WinRTXamlToolkit.Controls
                 VisualStateManager.GoToState(this, HorizontalOrientationStateName, true);
             }
 
-            if (this.FocusState == Windows.UI.Xaml.FocusState.Unfocused)
+            if (this.FocusState == Microsoft.UI.Xaml.FocusState.Unfocused)
             {
                 VisualStateManager.GoToState(this, UnfocusedStateName, true);
             }
@@ -502,7 +502,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the PointerEntered event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerEntered(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             this.DetermineResizeCursor();
         }
@@ -513,7 +513,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the PointerPressed event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerPressed(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerPressed(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (_dragPointer != null)
                 return;
@@ -538,7 +538,7 @@ namespace WinRTXamlToolkit.Controls
                 StartDirectDragging(e);
         }
 
-        private void StartPreviewDragging(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void StartPreviewDragging(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             _isDraggingPreview = true;
             _previewPopup = new Popup
@@ -550,8 +550,8 @@ namespace WinRTXamlToolkit.Controls
             _previewPopup.IsOpen = true;
             _previewPopupHostGrid = new Grid
             {
-                VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Stretch,
-                HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch
+                VerticalAlignment = Microsoft.UI.Xaml.VerticalAlignment.Stretch,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Stretch
             };
 
             _parentGrid.Children.Add(_previewPopupHostGrid);
@@ -688,7 +688,7 @@ namespace WinRTXamlToolkit.Controls
                 this.DraggingCompleted(this, EventArgs.Empty);
         }
 
-        private void StartDirectDragging(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void StartDirectDragging(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             _isDraggingPreview = false;
             this.CapturePointer(e.Pointer);
@@ -699,7 +699,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the PointerMoved event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerMoved(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerMoved(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (!_isDragging ||
                 _dragPointer != e.Pointer.PointerId)
@@ -739,7 +739,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the PointerReleased event occurs.
         /// </summary>
         /// <param name="e">Event data for the event.</param>
-        protected override void OnPointerReleased(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        protected override void OnPointerReleased(Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             if (!_isDragging ||
                 _dragPointer != e.Pointer.PointerId)
@@ -760,7 +760,7 @@ namespace WinRTXamlToolkit.Controls
         /// Called before the KeyDown event occurs.
         /// </summary>
         /// <param name="e">The data for the event.</param>
-        protected override void OnKeyDown(Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        protected override void OnKeyDown(Microsoft.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
 

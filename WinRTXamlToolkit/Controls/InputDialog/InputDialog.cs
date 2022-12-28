@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 using WinRTXamlToolkit.AwaitableUI;
 using WinRTXamlToolkit.Controls.Extensions;
 
@@ -470,14 +470,14 @@ namespace WinRTXamlToolkit.Controls
             if (AcceptButton != null &&
                 (button = _buttons.FirstOrDefault(b => string.Equals(b.Content, buttonContent))) != null)
             {
-                button.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+                button.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
                 return;
             }
 
             if (_buttons.Count > 0)
             {
                 button = (Button)_buttons[0];
-                button.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+                button.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
             }
         }
 
@@ -506,8 +506,8 @@ namespace WinRTXamlToolkit.Controls
 
             this.Visibility = Visibility.Visible;
             _shown = true;
-            //this.Focus(Windows.UI.Xaml.FocusState.Programmatic);
-            Window.Current.Content.KeyUp += OnGlobalKeyUp;
+            //this.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
+            App.Window.Content.KeyUp += OnGlobalKeyUp;
             _dismissTaskSource = new TaskCompletionSource<string>();
 
             _parentPanel = this.Parent as Panel;
@@ -537,7 +537,7 @@ namespace WinRTXamlToolkit.Controls
             }
             else
             {
-                _temporaryParentPanel = Window.Current.Content.GetFirstDescendantOfType<Panel>();
+                _temporaryParentPanel = App.Window.Content.GetFirstDescendantOfType<Panel>();
 
                 if (_temporaryParentPanel != null)
                 {
@@ -569,7 +569,7 @@ namespace WinRTXamlToolkit.Controls
                 _buttonsPanel.Children.Add(button);
             }
 
-            _inputTextBox.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            _inputTextBox.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
 
             ResizeLayoutRoot();
 
@@ -591,7 +591,7 @@ namespace WinRTXamlToolkit.Controls
 #pragma warning restore 4014
             }
 
-            Window.Current.Content.KeyUp -= OnGlobalKeyUp;
+            App.Window.Content.KeyUp -= OnGlobalKeyUp;
 
             return result;
         }
@@ -693,7 +693,7 @@ namespace WinRTXamlToolkit.Controls
             if (_buttons.Count > 0)
             {
                 var button = (Button)_buttons[0];
-                button.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+                button.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
             }
         }
     }

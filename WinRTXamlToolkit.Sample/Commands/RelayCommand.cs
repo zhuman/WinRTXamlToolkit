@@ -1,4 +1,4 @@
-﻿// <copyright file="RelayCommand.cs" company="GalaSoft Laurent Bugnion">
+// <copyright file="RelayCommand.cs" company="GalaSoft Laurent Bugnion">
 // Copyright © GalaSoft Laurent Bugnion 2009-2011
 // </copyright>
 // ****************************************************************************
@@ -21,7 +21,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
 #if NETFX_CORE
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Input;
 using System.Windows.Input;
 #else
 using System.Windows.Input;

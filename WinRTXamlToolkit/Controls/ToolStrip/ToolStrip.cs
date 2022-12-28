@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -6,11 +6,11 @@ using System.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Markup;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Markup;
 using WinRTXamlToolkit.Controls.Extensions;
 
 namespace WinRTXamlToolkit.Controls
@@ -385,7 +385,7 @@ namespace WinRTXamlToolkit.Controls
         private void PositionDropDownPopup()
         {
             var dropDownButtonBounds = _dropDownButton.GetBoundingRect();
-            var windowBounds = Window.Current.Bounds;
+            var windowBounds = App.Window.Bounds;
             var panelHeight = _dropDownPanel.ActualHeight;
             var panelWidth = _dropDownPanel.ActualWidth;
             var spaceBelow = windowBounds.Height - dropDownButtonBounds.Bottom;

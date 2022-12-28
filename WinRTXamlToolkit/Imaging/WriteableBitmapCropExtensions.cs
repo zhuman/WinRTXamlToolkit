@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace WinRTXamlToolkit.Imaging
 {

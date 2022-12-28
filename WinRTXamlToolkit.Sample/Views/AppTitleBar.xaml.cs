@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using WinRTXamlToolkit.Debugging;
 
 namespace WinRTXamlToolkit.Sample.Views
@@ -64,7 +64,7 @@ namespace WinRTXamlToolkit.Sample.Views
             this.UpdateDebugConsoleMargin(coreTitleBar);
             this.Visibility = coreTitleBar.IsVisible || this.alwaysShow ? Visibility.Visible : Visibility.Collapsed;
             this.UpdateBackButtonVisibility();
-            Window.Current.SetTitleBar(this.LabelGrid);
+            App.Window.SetTitleBar(this.LabelGrid);
             
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             this.DeferInitializationAsync();
@@ -81,12 +81,12 @@ namespace WinRTXamlToolkit.Sample.Views
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            Window.Current.Activated += this.OnActivated;
+            App.Window.Activated += this.OnActivated;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            Window.Current.Activated -= this.OnActivated;
+            App.Window.Activated -= this.OnActivated;
         }
 
         private void OnActivated(object sender, WindowActivatedEventArgs e)

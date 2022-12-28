@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Input
 {
@@ -70,7 +70,7 @@ namespace WinRTXamlToolkit.Input
             }
 
             this.gesture = gesture;
-            this.window = Window.Current;
+            this.window = App.Window;
             this.window.CoreWindow.KeyDown += this.CoreWindowOnKeyDown;
         }
 

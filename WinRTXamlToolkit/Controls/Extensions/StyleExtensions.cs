@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Windows.UI.Xaml;
+using System.Linq;
+using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Controls.Extensions
 {

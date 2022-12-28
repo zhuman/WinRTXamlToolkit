@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "WinRTXamlToolkit.Sample (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinRTXamlToolkit.Sample (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

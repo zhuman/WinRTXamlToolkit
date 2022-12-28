@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace WinRTXamlToolkit.Sample.Views
 {
@@ -66,15 +66,26 @@ namespace WinRTXamlToolkit.Sample.Views
                     }
                 })
             ;
-#pragma warning restore 4014
-            CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
+
+                    /* 
+                        TODO UA315_B
+                        Use Microsoft.UI.Windowing.AppWindow.Create instead of GetForCurrentThread.
+                        Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+                    */
+                    CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
             this.Unloaded += OnUnloaded;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs routedEventArgs)
         {
             this.isAlive = false;
-            CoreWindow.GetForCurrentThread().KeyDown -= OnKeyDown;
+
+                    /* 
+                        TODO UA315_B
+                        Use Microsoft.UI.Windowing.AppWindow.Create instead of GetForCurrentThread.
+                        Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+                    */
+                    CoreWindow.GetForCurrentThread().KeyDown -= OnKeyDown;
         }
 
         private void OnKeyDown(CoreWindow sender, KeyEventArgs args)

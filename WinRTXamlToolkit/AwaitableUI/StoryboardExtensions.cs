@@ -1,9 +1,9 @@
-﻿#if SILVERLIGHT
+#if SILVERLIGHT
 using System.Windows.Media.Animation;
 using System.Threading.Tasks;
 #elif NETFX_CORE
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Animation;
 #elif WPF
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
