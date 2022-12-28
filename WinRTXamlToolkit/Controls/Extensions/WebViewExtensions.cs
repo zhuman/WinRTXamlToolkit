@@ -15,9 +15,9 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// </summary>
         /// <param name="webView">The web view.</param>
         /// <returns></returns>
-        public static async Task<string> GetTitleAsync(this WebView webView)
+        public static async Task<string> GetTitleAsync(this WebView2 webView)
         {
-            return await webView.InvokeScriptAsync("eval", new[] {"document.title"});
+            return await webView.CoreWebView2.ExecuteScriptAsync("document.title");
         }
 
         /// <summary>
@@ -25,9 +25,9 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// </summary>
         /// <param name="webView">The web view.</param>
         /// <returns></returns>
-        public static async Task<string> GetAddressAsync(this WebView webView)
+        public static async Task<string> GetAddressAsync(this WebView2 webView)
         {
-            var address = await webView.InvokeScriptAsync("eval", new[] { "document.location.href" });
+            var address = await webView.CoreWebView2.ExecuteScriptAsync("document.location.href");
 
             if (address == null)
             {
@@ -42,7 +42,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// </summary>
         /// <param name="webView">The web view.</param>
         /// <returns></returns>
-        public static async Task<string> GetHeadAsync(this WebView webView)
+        public static async Task<string> GetHeadAsync(this WebView2 webView)
         {
             //var headCount = webView.InvokeScript(
             //    "eval", new[] {"document.getElementsByTagName('head').innerHTML"});
@@ -50,7 +50,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             try
             {
-                var head = await webView.InvokeScriptAsync("eval", new[] { "document.getElementsByTagName('head')[0].innerHTML" });
+                var head = await webView.CoreWebView2.ExecuteScriptAsync("document.getElementsByTagName('head')[0].innerHTML");
                 return head;
             }
             catch (Exception)
@@ -113,7 +113,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         /// </summary>
         /// <param name="webView">The web view.</param>
         /// <returns></returns>
-        public async static Task<Uri> GetFavIconLink(this WebView webView)
+        public async static Task<Uri> GetFavIconLink(this WebView2 webView)
         {
             var head = await webView.GetHeadAsync();
 

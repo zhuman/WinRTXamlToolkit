@@ -2,6 +2,7 @@ using System;
 using Windows.System;
 using Windows.UI.Core;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Input;
 
 namespace WinRTXamlToolkit.Input
 {
@@ -70,8 +71,8 @@ namespace WinRTXamlToolkit.Input
             }
 
             this.gesture = gesture;
-            this.window = App.Window;
-            this.window.CoreWindow.KeyDown += this.CoreWindowOnKeyDown;
+            this.window = Window.Current;
+            this.window.Content.KeyDown += this.CoreWindowOnKeyDown;
         }
 
         public void Dispose()
@@ -87,7 +88,7 @@ namespace WinRTXamlToolkit.Input
                 return;
             }
 
-            this.window.CoreWindow.KeyDown -= this.CoreWindowOnKeyDown;
+            this.window.Content.KeyDown -= this.CoreWindowOnKeyDown;
             this.window = null;
             this.gesture = null;
         }
@@ -161,7 +162,7 @@ namespace WinRTXamlToolkit.Input
             }
         }
 
-        private void CoreWindowOnKeyDown(CoreWindow sender, KeyEventArgs args)
+        private void CoreWindowOnKeyDown(object sender, KeyRoutedEventArgs args)
         {
             KeyCombination precedingCombination = null;
 
@@ -170,7 +171,7 @@ namespace WinRTXamlToolkit.Input
                 precedingCombination = this.gesture[0];
             }
 
-            switch (CheckKeyCombination(this.gesture[this.combinationsMatched], args.VirtualKey, precedingCombination))
+            switch (CheckKeyCombination(this.gesture[this.combinationsMatched], args.Key, precedingCombination))
             {
                 case MatchKind.Incomplete:
                     break;

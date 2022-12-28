@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using Windows.UI;
 using Microsoft.UI.Xaml.Markup;
+using Microsoft.UI;
 
 namespace WinRTXamlToolkit.Imaging
 {
@@ -71,6 +72,7 @@ namespace WinRTXamlToolkit.Imaging
         {
             if (string.IsNullOrEmpty(c))
             {
+                color = Colors.Transparent;
                 if (throwOnFail)
                     throw new ArgumentException("Invalid color string.", "c");
                 else
@@ -132,10 +134,13 @@ namespace WinRTXamlToolkit.Imaging
                         return true;
                     }
                     default:
+                    {
+                        color = Colors.Transparent;
                         if (throwOnFail)
                             throw new FormatException(string.Format("The {0} string passed in the c argument is not a recognized Color format.", c));
                         else
                             return false;
+                    }
                 }
             }
             else if (
@@ -175,6 +180,7 @@ namespace WinRTXamlToolkit.Imaging
                 }
                 else
                 {
+                    color = Colors.Transparent;
                     if (throwOnFail)
                         throw new FormatException(string.Format("The {0} string passed in the c argument is not a recognized Color format (sc#[scA,]scR,scG,scB).", c));
                     else
@@ -190,6 +196,8 @@ namespace WinRTXamlToolkit.Imaging
                     color = (Color)prop.GetValue(null);
                     return true;
                 }
+
+                color = Colors.Transparent;
 
                 if (throwOnFail)
                     throw new FormatException(string.Format("The {0} string passed in the c argument is not a recognized Color.", c));

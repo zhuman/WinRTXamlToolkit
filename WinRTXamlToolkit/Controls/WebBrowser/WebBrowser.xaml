@@ -411,16 +411,10 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Grid.Background>
-                            <WebViewBrush
-                                x:Name="PART_WebViewBrush"
-                                SourceName="PART_WebView" />
-                        </Grid.Background>
-                        <WebView
+                        <WebView2
                             x:Name="PART_WebView" />
-                        <controls:CustomAppBar
+                        <AppBar
                             x:Name="PART_TitleAppBar"
-                            IsLightDismissEnabled="True"
                             VerticalAlignment="Top"
                             Extensions:FrameworkElementExtensions.ClipToBounds="True">
                             <!--Visibility="{Binding IsOpen, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}">-->
@@ -428,13 +422,12 @@
                                 x:Name="PART_TitleBar"
                                 FontSize="24"
                                 Margin="6" />
-                        </controls:CustomAppBar>
+                        </AppBar>
 
                         <!-- TODO: What's up with Grid.Row="2" here in a single row grid? -->
-                        <controls:CustomAppBar
+                        <AppBar
                             x:Name="PART_AddressAppBar"
                             Grid.Row="2"
-                            IsLightDismissEnabled="True"
                             VerticalAlignment="Bottom"
                             IsOpen="True"
                             Extensions:FrameworkElementExtensions.ClipToBounds="True">
@@ -506,7 +499,7 @@
                                     Style="{StaticResource UnlabeledNextAppBarButtonStyle}"
                                     AutomationProperties.Name="" />
                             </Grid>
-                        </controls:CustomAppBar>
+                        </AppBar>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

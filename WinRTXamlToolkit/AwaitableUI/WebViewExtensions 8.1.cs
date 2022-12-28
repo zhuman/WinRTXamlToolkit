@@ -1,4 +1,3 @@
-#if NETFX_CORE
 using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -14,11 +13,11 @@ namespace WinRTXamlToolkit.AwaitableUI
         /// <summary>
         /// Navigates to the given source URI and waits for the loading to complete or fail.
         /// </summary>
-        public static async Task NavigateAsync(this WebView webView, Uri source)
+        public static async Task NavigateAsync(this WebView2 webView, Uri source)
         {
             var tcs = new TaskCompletionSource<object>();
 
-            TypedEventHandler<WebView, WebViewNavigationCompletedEventArgs> nceh = null;
+            TypedEventHandler<WebView2, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs> nceh = null;
 
             nceh = (s, e) =>
             {
@@ -27,10 +26,9 @@ namespace WinRTXamlToolkit.AwaitableUI
             };
 
             webView.NavigationCompleted += nceh;
-            webView.Navigate(source);
+            webView.CoreWebView2.Navigate(source.ToString());
 
             await tcs.Task; 
         }
     }
 }
-#endif

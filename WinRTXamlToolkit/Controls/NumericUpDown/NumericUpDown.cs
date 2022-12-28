@@ -2,10 +2,8 @@ using System;
 using System.Globalization;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
-using Windows.Devices.Input;
 using Windows.Foundation;
 using Windows.System;
-using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -13,6 +11,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using WinRTXamlToolkit.Controls.Common;
 using WinRTXamlToolkit.Tools;
+using Microsoft.UI.Input;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -64,10 +63,10 @@ namespace WinRTXamlToolkit.Controls
         private double _unusedManipulationDelta;
 
         private bool _isDraggingWithMouse;
-        private MouseDevice _mouseDevice;
         private const double MinMouseDragDelta = 2;
         private double _totalDeltaX;
         private double _totalDeltaY;
+        private Point _mouseDragStart;
 
         #region ValueFormat
         /// <summary>
@@ -246,23 +245,6 @@ namespace WinRTXamlToolkit.Controls
         public NumericUpDown()
         {
             this.DefaultStyleKey = typeof(NumericUpDown);
-            this.Loaded += this.OnLoaded;
-            this.Unloaded += this.OnUnloaded;
-        }
-
-        private void OnLoaded(object sender, RoutedEventArgs e)
-        {
-            if (_dragOverlay != null)
-            {
-                App.Window.CoreWindow.PointerReleased += this.CoreWindowOnPointerReleased;
-                App.Window.CoreWindow.VisibilityChanged += this.OnCoreWindowVisibilityChanged;
-            }
-        }
-
-        private void OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            App.Window.CoreWindow.PointerReleased -= this.CoreWindowOnPointerReleased;
-            App.Window.CoreWindow.VisibilityChanged -= this.OnCoreWindowVisibilityChanged;
         }
 
         #region OnApplyTemplate()
@@ -426,18 +408,12 @@ namespace WinRTXamlToolkit.Controls
 
         private void OnDecrementButtonClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            if (App.Window.CoreWindow.IsInputEnabled)
-            {
-                this.Decrement();
-            }
+            this.Decrement();
         }
 
         private void OnIncrementButtonClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            if (App.Window.CoreWindow.IsInputEnabled)
-            {
-                this.Increment();
-            }
+            this.Increment();
         }
         #endregion
 
@@ -480,26 +456,16 @@ namespace WinRTXamlToolkit.Controls
 
             _totalDeltaX = 0;
             _totalDeltaY = 0;
-            
+
             if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
             {
                 _isDraggingWithMouse = true;
-                _mouseDevice = MouseDevice.GetForCurrentView();
-                _mouseDevice.MouseMoved += this.OnMouseDragged;
-                App.Window.CoreWindow.PointerCursor = null;
+                _mouseDragStart = e.GetCurrentPoint(_dragOverlay).Position;
+                _dragOverlay.PointerMoved += this.OnMouseDragged;
             }
             else
             {
                 _dragOverlay.ManipulationDelta += this.OnDragOverlayManipulationDelta;
-            }
-        }
-
-        private void CoreWindowOnPointerReleased(CoreWindow sender, PointerEventArgs args)
-        {
-            if (_isDragUpdated)
-            {
-                args.Handled = true;
-                this.ResumeValueTextBoxTabStopAsync();
             }
         }
 
@@ -538,9 +504,8 @@ namespace WinRTXamlToolkit.Controls
             if (_isDraggingWithMouse)
             {
                 _isDraggingWithMouse = false;
-                _mouseDevice.MouseMoved -= this.OnMouseDragged;
-                App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.SizeAll, 1);
-                _mouseDevice = null;
+                _dragOverlay.PointerMoved -= this.OnMouseDragged;
+                this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.SizeAll);
             }
             else if (_dragOverlay != null)
             {
@@ -558,29 +523,21 @@ namespace WinRTXamlToolkit.Controls
             }
         }
 
-        private void OnCoreWindowVisibilityChanged(CoreWindow sender, VisibilityChangedEventArgs args)
+        private void OnMouseDragged(object sender, PointerRoutedEventArgs args)
         {
-            // There are cases where pointer isn't getting released - this should hopefully end dragging too.
-            if (!args.Visible)
-            {
-#pragma warning disable 4014
-                this.EndDragging(null);
-#pragma warning restore 4014
-            }
-        }
+            var dx = args.GetCurrentPoint(_dragOverlay).Position.X;
+            var dy = args.GetCurrentPoint(_dragOverlay).Position.Y;
 
-        private void OnMouseDragged(MouseDevice sender, MouseEventArgs args)
-        {
-            var dx = args.MouseDelta.X;
-            var dy = args.MouseDelta.Y;
-
-            if (dx > 200 || dx < -200 || dy > 200 || dy < -200)
+            /*if (dx > 200 || dx < -200 || dy > 200 || dy < -200)
             {
                 return;
             }
 
             _totalDeltaX += dx;
-            _totalDeltaY += dy;
+            _totalDeltaY += dy;*/
+
+            _totalDeltaX = dx - _mouseDragStart.X;
+            _totalDeltaY = dy - _mouseDragStart.Y;
 
             if (_totalDeltaX > MinMouseDragDelta ||
                 _totalDeltaX < -MinMouseDragDelta ||
@@ -656,9 +613,9 @@ namespace WinRTXamlToolkit.Controls
 
             double smallerScreenDimension;
 
-            if (App.Window != null)
+            if (Window.Current != null)
             {
-                smallerScreenDimension = Math.Min(App.Window.Bounds.Width, App.Window.Bounds.Height);
+                smallerScreenDimension = Math.Min(Window.Current.Bounds.Width, Window.Current.Bounds.Height);
             }
             else
             {
@@ -691,15 +648,12 @@ namespace WinRTXamlToolkit.Controls
                 _valueTextBox.IsTabStop)
             {
                 _valueTextBox.Focus(FocusState.Programmatic);
-                App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.IBeam, 0);
+                this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.IBeam);
             }
         }
         private void OnValueTextBoxPointerExited(object sender, PointerRoutedEventArgs e)
         {
-            if (App.Window.CoreWindow.PointerCursor.Type == CoreCursorType.IBeam)
-            {
-                App.Window.CoreWindow.PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
-            }
+            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Arrow);
         }
 
         /// <summary>

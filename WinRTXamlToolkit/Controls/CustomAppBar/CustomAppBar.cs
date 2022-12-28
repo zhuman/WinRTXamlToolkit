@@ -323,8 +323,6 @@ namespace WinRTXamlToolkit.Controls
             //}
 
             EdgeGesture.GetForCurrentView().Completed += OnEdgeGestureCompleted;
-            App.Window.CoreWindow.PointerPressed += OnCoreWindowPointerPressed;
-            App.Window.CoreWindow.PointerReleased += OnCoreWindowPointerReleased;
 
             if (!IsOpen)
             {
@@ -424,57 +422,6 @@ namespace WinRTXamlToolkit.Controls
         private void OnEdgeGestureCompleted(EdgeGesture sender, EdgeGestureEventArgs args)
         {
             OnSwitchGesture();
-        } 
-        #endregion
-
-        #region OnCoreWindowPointerPressed()
-        private void OnCoreWindowPointerPressed(CoreWindow sender, PointerEventArgs args)
-        {
-            if (this.IsLightDismissEnabled &&
-                this.CanDismiss && 
-                this.IsOpen &&
-                App.Window != null &&
-                App.Window.Content != null)
-            {
-                var windowToAppBarTransform = App.Window.Content.TransformToVisual(this);
-                var appBarPosition = windowToAppBarTransform.TransformPoint(args.CurrentPoint.Position);
-                var appBarBounds = this.GetBoundingRect(this);
-
-                if (!appBarBounds.Contains(appBarPosition))
-                {
-                    this.IsOpen = false;
-                    return;
-                }
-            }
-
-            if (args.CurrentPoint.PointerDevice.PointerDeviceType == PointerDeviceType.Mouse)
-            {
-                _rightMouseButtonPressed =
-                    args.CurrentPoint.Properties.IsRightButtonPressed &&
-                    !args.CurrentPoint.Properties.IsLeftButtonPressed &&
-                    !args.CurrentPoint.Properties.IsMiddleButtonPressed;
-
-                if (_rightMouseButtonPressed)
-                {
-                    args.Handled = true;
-                }
-            }
-        } 
-        #endregion
-
-        #region OnCoreWindowPointerReleased()
-        private void OnCoreWindowPointerReleased(CoreWindow sender, PointerEventArgs args)
-        {
-            if (args.CurrentPoint.PointerDevice.PointerDeviceType == PointerDeviceType.Mouse &&
-                !args.CurrentPoint.Properties.IsLeftButtonPressed &&
-                !args.CurrentPoint.Properties.IsMiddleButtonPressed &&
-                _rightMouseButtonPressed)
-            {
-                OnSwitchGesture();
-                args.Handled = true;
-            }
-
-            _rightMouseButtonPressed = false;
         } 
         #endregion
 

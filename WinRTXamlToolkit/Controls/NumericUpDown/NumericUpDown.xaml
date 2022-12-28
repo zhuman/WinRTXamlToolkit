@@ -311,9 +311,9 @@
                                     HorizontalAlignment="Stretch"
                                     IsReadOnly="{TemplateBinding IsReadOnly}"
                                     IsEnabled="{TemplateBinding IsEnabled}" />
+                                <!-- TODO: Add public Cursor property below: Cursor="SizeAll" -->
                                 <Rectangle
                                     x:Name="PART_DragOverlay"
-                                    extensions:FrameworkElementExtensions.SystemCursor="SizeAll"
                                     Fill="Transparent" />
                             </Grid>
                             <RepeatButton

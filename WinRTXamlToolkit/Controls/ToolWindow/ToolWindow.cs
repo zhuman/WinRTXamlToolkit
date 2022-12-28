@@ -16,6 +16,7 @@ using WinRTXamlToolkit.Controls.Common;
 using WinRTXamlToolkit.Controls.Extensions;
 using WinRTXamlToolkit.Tools;
 using FrameworkElementExtensions = WinRTXamlToolkit.Controls.Extensions.FrameworkElementExtensions;
+using Microsoft.UI;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -1859,7 +1860,7 @@ namespace WinRTXamlToolkit.Controls
                     break;
                 case WindowStartupLocation.CenterScreen:
                     var parentPosition = parent.GetPosition();
-                    var root = App.Window.Content as FrameworkElement;
+                    var root = Window.Current?.Content as FrameworkElement;
                     if (root != null)
                     {
                         this.X = Math.Round(root.ActualWidth / 2 - this.ActualWidth / 2 - parentPosition.X);
@@ -2024,14 +2025,15 @@ namespace WinRTXamlToolkit.Controls
                     ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.TranslateY
                 };
                 _sizingGrid.Children.Add(_bottomRightSizingThumb);
-                FrameworkElementExtensions.SetSystemCursor(_topLeftSizingThumb, CoreCursorType.SizeNorthwestSoutheast);
+                // TODO: Hookup to public Cursor property once added to WinAppSDK (currently only ProtectedCursor is available on derived classes)
+                /*FrameworkElementExtensions.SetSystemCursor(_topLeftSizingThumb, CoreCursorType.SizeNorthwestSoutheast);
                 FrameworkElementExtensions.SetSystemCursor(_topCenterSizingThumb, CoreCursorType.SizeNorthSouth);
                 FrameworkElementExtensions.SetSystemCursor(_topRightSizingThumb, CoreCursorType.SizeNortheastSouthwest);
                 FrameworkElementExtensions.SetSystemCursor(_centerLeftSizingThumb, CoreCursorType.SizeWestEast);
                 FrameworkElementExtensions.SetSystemCursor(_centerRightSizingThumb, CoreCursorType.SizeWestEast);
                 FrameworkElementExtensions.SetSystemCursor(_bottomLeftSizingThumb, CoreCursorType.SizeNortheastSouthwest);
                 FrameworkElementExtensions.SetSystemCursor(_bottomCenterSizingThumb, CoreCursorType.SizeNorthSouth);
-                FrameworkElementExtensions.SetSystemCursor(_bottomRightSizingThumb, CoreCursorType.SizeNorthwestSoutheast);
+                FrameworkElementExtensions.SetSystemCursor(_bottomRightSizingThumb, CoreCursorType.SizeNorthwestSoutheast);*/
                 this.UpdateSizingThumbSizes();
                 HookUpSizingThumbManipulations(_topLeftSizingThumb);
                 HookUpSizingThumbManipulations(_topCenterSizingThumb);
@@ -2430,7 +2432,7 @@ namespace WinRTXamlToolkit.Controls
             else
             {
                 var parentPosition = parent.GetPosition();
-                var root = App.Window.Content as FrameworkElement;
+                var root = Window.Current?.Content as FrameworkElement;
 
                 if (root == null)
                 {

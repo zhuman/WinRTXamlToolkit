@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Windows.UI;
 using Microsoft.UI.Xaml.Media.Imaging;
 using WinRTXamlToolkit.Imaging;
+using Microsoft.UI;
 
 namespace WinRTXamlToolkit.Controls.Fx
 {

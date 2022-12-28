@@ -665,7 +665,7 @@ namespace WinRTXamlToolkit.Controls
         private SuggestionPopupDisplaySide GetDisplaySide()
         {
             double textBoxBottomBound = this.GetSuggestionPopupVerticalEndCoordinate();
-            double windowBottomBound = App.Window.Bounds.Bottom;
+            double windowBottomBound = Window.Current.Bounds.Bottom;
 
             if (textBoxBottomBound > windowBottomBound)
             {
@@ -679,7 +679,7 @@ namespace WinRTXamlToolkit.Controls
 
         private double GetSuggestionPopupVerticalEndCoordinate()
         {
-            var textBoxTransform = this.textBox.TransformToVisual(App.Window.Content);
+            var textBoxTransform = this.textBox.TransformToVisual(Window.Current.Content);
             Point textBoxPosition = textBoxTransform.TransformPoint(new Point(0, 0));
             double autoCompletePresenterHeight = this.CalculateAutoCompleteListBoxHeight();
             double textBoxBottomBound = textBoxPosition.Y + textBox.ActualHeight + autoCompletePresenterHeight;
@@ -707,7 +707,7 @@ namespace WinRTXamlToolkit.Controls
 
         private void SetBorderThickness()
         {
-            Thickness textBoxThickenss, suggestionsItemsContainerThickness;
+            Thickness textBoxThickenss = default, suggestionsItemsContainerThickness = default;
 
             if (autoCompletePresenter.IsOpen)
             {

@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics;
-using Windows.UI.Core;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Tools
@@ -129,16 +129,14 @@ namespace WinRTXamlToolkit.Tools
             }
         }
 
-        private /*
-                TODO UA306_A1: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
-            */CoreDispatcher _dispatcher;
+        private DispatcherQueue _dispatcher;
 
         /// <summary>
         /// Starts a timeout check.
         /// </summary>
         public void Start()
         {
-            _dispatcher = App.Window.Dispatcher;
+            _dispatcher = DispatcherQueue.GetForCurrentThread();
             _timeoutTimer.Start();
         }
 
@@ -156,9 +154,7 @@ namespace WinRTXamlToolkit.Tools
             }
             else
             {
-#pragma warning disable 4014
-                _dispatcher.RunAsync(CoreDispatcherPriority.High, Stop);
-#pragma warning restore 4014
+                _dispatcher.TryEnqueue(DispatcherQueuePriority.High, Stop);
             }
         }
 

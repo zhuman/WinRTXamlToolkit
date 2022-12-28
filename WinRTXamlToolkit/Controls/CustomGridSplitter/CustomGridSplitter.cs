@@ -7,6 +7,7 @@ using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Input;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -408,11 +409,11 @@ namespace WinRTXamlToolkit.Controls
 
             if (effectiveResizeDirection == GridResizeDirection.Columns)
             {
-                FrameworkElementExtensions.SetCursor(this, new CoreCursor(CoreCursorType.SizeWestEast, 1));
+                this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.SizeWestEast);
             }
             else
             {
-                FrameworkElementExtensions.SetCursor(this, new CoreCursor(CoreCursorType.SizeNorthSouth, 1));
+                this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.SizeNorthSouth);
             }
         }
         #endregion

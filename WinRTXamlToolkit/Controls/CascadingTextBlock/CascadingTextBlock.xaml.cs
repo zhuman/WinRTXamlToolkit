@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
 using WinRTXamlToolkit.AwaitableUI;
+using Microsoft.UI;
 
 namespace WinRTXamlToolkit.Controls
 {

@@ -17,8 +17,7 @@ namespace WinRTXamlToolkit.Controls
     /// A simple web browser control based on the WebView control with address bar, navigation buttons and navigation history.
     /// </summary>
     [TemplatePart(Name = LayoutRootPanelName, Type = typeof(Panel))]
-    [TemplatePart(Name = WebViewName, Type = typeof(WebView))]
-    [TemplatePart(Name = WebViewBrushName, Type = typeof(WebViewBrush))]
+    [TemplatePart(Name = WebViewName, Type = typeof(WebView2))]
     [TemplatePart(Name = AddressBarName, Type = typeof(TextBox))]
     [TemplatePart(Name = TitleTextBlockName, Type = typeof(TextBlock))]
     [TemplatePart(Name = FavIconImageName, Type = typeof(Image))]
@@ -27,8 +26,8 @@ namespace WinRTXamlToolkit.Controls
     [TemplatePart(Name = ForwardButtonName, Type = typeof(Button))]
     [TemplatePart(Name = GoButtonName, Type = typeof(Button))]
     [TemplatePart(Name = RefreshButtonName, Type = typeof(Button))]
-    [TemplatePart(Name = AddressAppBarName, Type = typeof(CustomAppBar))]
-    [TemplatePart(Name = TitleAppBarName, Type = typeof(CustomAppBar))]
+    [TemplatePart(Name = AddressAppBarName, Type = typeof(AppBar))]
+    [TemplatePart(Name = TitleAppBarName, Type = typeof(AppBar))]
     [TemplateVisualState(GroupName = LoadingStatesGroupName, Name = LoadingStateName)]
     [TemplateVisualState(GroupName = LoadingStatesGroupName, Name = LoadedStateName)]
     [TemplateVisualState(GroupName = AddressBarStatesGroupName, Name = AddressBarFocusedStateName)]
@@ -45,7 +44,6 @@ namespace WinRTXamlToolkit.Controls
 
         private const string LayoutRootPanelName = "LayoutRoot";
         private const string WebViewName = "PART_WebView";
-        private const string WebViewBrushName = "PART_WebViewBrush";
         private const string AddressBarName = "PART_AddressBar";
         private const string TitleTextBlockName = "PART_TitleBar";
         private const string AddressAppBarName = "PART_AddressAppBar";
@@ -61,12 +59,11 @@ namespace WinRTXamlToolkit.Controls
 
         #region Template Part Fields
         private Panel _layoutRoot;
-        private WebView _webView;
-        private WebViewBrush _webViewBrush;
+        private WebView2 _webView;
         private TextBox _addressBar;
         private TextBlock _titleBar;
-        private CustomAppBar _addressAppBar;
-        private CustomAppBar _titleAppBar;
+        private AppBar _addressAppBar;
+        private AppBar _titleAppBar;
         private Image _favIconImage;
         private ProgressBar _progressIndicator;
         private Button _backButton;
@@ -267,8 +264,7 @@ namespace WinRTXamlToolkit.Controls
         {
             base.OnApplyTemplate();
             _layoutRoot = GetTemplateChild(LayoutRootPanelName) as Panel;
-            _webView = (WebView)GetTemplateChild(WebViewName);
-            _webViewBrush = GetTemplateChild(WebViewBrushName) as WebViewBrush;
+            _webView = (WebView2)GetTemplateChild(WebViewName);
             _addressBar = GetTemplateChild(AddressBarName) as TextBox;
             _titleBar = GetTemplateChild(TitleTextBlockName) as TextBlock;
             _favIconImage = GetTemplateChild(FavIconImageName) as Image;
@@ -278,8 +274,8 @@ namespace WinRTXamlToolkit.Controls
             _goButton = GetTemplateChild(GoButtonName) as Button;
             _stopButton = GetTemplateChild(StopButtonName) as Button;
             _refreshButton = GetTemplateChild(RefreshButtonName) as Button;
-            _addressAppBar = GetTemplateChild(AddressAppBarName) as CustomAppBar;
-            _titleAppBar = GetTemplateChild(TitleAppBarName) as CustomAppBar;
+            _addressAppBar = GetTemplateChild(AddressAppBarName) as AppBar;
+            _titleAppBar = GetTemplateChild(TitleAppBarName) as AppBar;
             
             VisualStateManager.GoToState(this, AddressBarUnfocusedStateName, true);
 
@@ -317,16 +313,6 @@ namespace WinRTXamlToolkit.Controls
                 _refreshButton.IsEnabled = false;
                 _refreshButton.Click += OnRefreshButtonClick;
             }
-            if (_addressAppBar != null)
-            {
-                _addressAppBar.Opened += OnAppBarOpenedOrClosed;
-                _addressAppBar.Closed += OnAppBarOpenedOrClosed;
-            }
-            if (_titleAppBar != null)
-            {
-                _titleAppBar.Opened += OnAppBarOpenedOrClosed;
-                _titleAppBar.Closed += OnAppBarOpenedOrClosed;
-            }
 
             _webView.NavigationCompleted += OnNavigationCompleted;
 
@@ -342,21 +328,6 @@ namespace WinRTXamlToolkit.Controls
             if (_pendingNavigation)
             {
                 Navigate(this.Source);
-            }
-        }
-
-        private async void OnAppBarOpenedOrClosed(object sender, object e)
-        {
-            if (_addressAppBar != null && _addressAppBar.IsOpen ||
-                _titleAppBar != null && _titleAppBar.IsOpen)
-            {
-                _webViewBrush.SetSource(_webView);
-                _webView.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                await Task.Delay(200);
-                _webView.Visibility = Visibility.Visible;
             }
         }
 
@@ -453,7 +424,7 @@ namespace WinRTXamlToolkit.Controls
             }
         }
 
-        private void OnNavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs e)
+        private void OnNavigationCompleted(WebView2 sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
             if (e.IsSuccess)
             {
@@ -474,18 +445,18 @@ namespace WinRTXamlToolkit.Controls
             // Need to close the app bars instead to force the WebView to show up
             _addressAppBar.IsOpen = false;
             _titleAppBar.IsOpen = false;
-            var address = await _webView.GetAddressAsync();
+            var address = _webView.Source;
 
-            this.Source = address == null ? null : new Uri(address);
+            this.Source = address;
 
             if (_addressBar != null)
             {
-                _addressBar.Text = address ?? string.Empty;
+                _addressBar.Text = address?.ToString() ?? string.Empty;
             }
 
             if (_titleBar != null)
             {
-                _titleBar.Text = await _webView.GetTitleAsync();
+                _titleBar.Text = _webView.CoreWebView2.DocumentTitle;
             }
 
             if (_favIconImage != null &&
@@ -500,7 +471,7 @@ namespace WinRTXamlToolkit.Controls
             }
 
             if (_backStackPosition < 0 ||
-                _backStack[_backStackPosition].ToString() != address)
+                _backStack[_backStackPosition] != address)
             {
                 if (_backStack.Count > _backStackPosition + 1)
                 {
@@ -515,7 +486,7 @@ namespace WinRTXamlToolkit.Controls
             UpdateBackStackKeys();
         }
 
-        private void OnNavigationFailed(WebErrorStatus webErrorStatus)
+        private void OnNavigationFailed(Microsoft.Web.WebView2.Core.CoreWebView2WebErrorStatus webErrorStatus)
         {
             VisualStateManager.GoToState(this, LoadedStateName, true);
 

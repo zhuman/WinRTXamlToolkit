@@ -385,7 +385,7 @@ namespace WinRTXamlToolkit.Controls
         private void PositionDropDownPopup()
         {
             var dropDownButtonBounds = _dropDownButton.GetBoundingRect();
-            var windowBounds = App.Window.Bounds;
+            var windowBounds = Window.Current?.Bounds ?? new Rect();
             var panelHeight = _dropDownPanel.ActualHeight;
             var panelWidth = _dropDownPanel.ActualWidth;
             var spaceBelow = windowBounds.Height - dropDownButtonBounds.Bottom;

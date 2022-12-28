@@ -7,14 +7,14 @@
             Source="ms-appx:///WinRTXamlToolkit/Controls/AlternativeFrame/AlternativeFrame.xaml" />
         <ResourceDictionary
             Source="ms-appx:///WinRTXamlToolkit/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml" />
-        <ResourceDictionary
-            Source="ms-appx:///WinRTXamlToolkit/Controls/CameraCaptureControl/CameraCaptureControl.xaml" />
+        <!--<ResourceDictionary
+            Source="ms-appx:///WinRTXamlToolkit/Controls/CameraCaptureControl/CameraCaptureControl.xaml" />-->
         <ResourceDictionary
             Source="ms-appx:///WinRTXamlToolkit/Controls/CascadingImageControl/CascadingImageControl.xaml" />
         <ResourceDictionary
             Source="ms-appx:///WinRTXamlToolkit/Controls/ColorPicker/ColorPicker.xaml" />
-        <ResourceDictionary
-            Source="ms-appx:///WinRTXamlToolkit/Controls/CustomAppBar/CustomAppBar.xaml" />
+        <!--<ResourceDictionary
+            Source="ms-appx:///WinRTXamlToolkit/Controls/CustomAppBar/CustomAppBar.xaml" />-->
         <ResourceDictionary
             Source="ms-appx:///WinRTXamlToolkit/Controls/CustomGridSplitter/CustomGridSplitter.xaml" />
         <ResourceDictionary

@@ -5,7 +5,6 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <UseWinUI>true</UseWinUI>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
     <Platforms>x86;x64;arm64</Platforms>
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
@@ -55,6 +54,16 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Controls\CameraCaptureControl\**" />
+    <Compile Remove="Controls\CustomAppBar\**" />
+    <EmbeddedResource Remove="Controls\CameraCaptureControl\**" />
+    <EmbeddedResource Remove="Controls\CustomAppBar\**" />
+    <None Remove="Controls\CameraCaptureControl\**" />
+    <None Remove="Controls\CustomAppBar\**" />
+    <Page Remove="Controls\CameraCaptureControl\**" />
+    <Page Remove="Controls\CustomAppBar\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Remove="Converters\ProjectionRotationToVisibilityConverter.cs" />
     <Compile Remove="App.xaml.old.cs" />
   </ItemGroup>
@@ -67,6 +76,9 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.xaml.old.cs" />
+    <PRIResource Remove="Controls\CameraCaptureControl\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Remove="Controls\CustomAppBar\**" />
   </ItemGroup>
 </Project>

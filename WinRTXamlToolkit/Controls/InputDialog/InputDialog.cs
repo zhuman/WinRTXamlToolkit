@@ -507,7 +507,7 @@ namespace WinRTXamlToolkit.Controls
             this.Visibility = Visibility.Visible;
             _shown = true;
             //this.Focus(Microsoft.UI.Xaml.FocusState.Programmatic);
-            App.Window.Content.KeyUp += OnGlobalKeyUp;
+            Window.Current.Content.KeyUp += OnGlobalKeyUp;
             _dismissTaskSource = new TaskCompletionSource<string>();
 
             _parentPanel = this.Parent as Panel;
@@ -537,7 +537,7 @@ namespace WinRTXamlToolkit.Controls
             }
             else
             {
-                _temporaryParentPanel = App.Window.Content.GetFirstDescendantOfType<Panel>();
+                _temporaryParentPanel = Window.Current.Content.GetFirstDescendantOfType<Panel>();
 
                 if (_temporaryParentPanel != null)
                 {
@@ -591,7 +591,7 @@ namespace WinRTXamlToolkit.Controls
 #pragma warning restore 4014
             }
 
-            App.Window.Content.KeyUp -= OnGlobalKeyUp;
+            Window.Current.Content.KeyUp -= OnGlobalKeyUp;
 
             return result;
         }

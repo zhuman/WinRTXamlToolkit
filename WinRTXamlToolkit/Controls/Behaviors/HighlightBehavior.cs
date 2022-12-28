@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI;
 
 namespace WinRTXamlToolkit.Controls.Behaviors
 {

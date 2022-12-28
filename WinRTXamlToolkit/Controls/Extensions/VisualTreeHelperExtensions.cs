@@ -28,7 +28,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
         {
             if (window == null)
             {
-                window = App.Window;
+                window = Window.Current;
             }
 
             if (window == null)
@@ -323,7 +323,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
                 return false;
             }
 
-            if (App.Window == null)
+            if (Window.Current == null)
             {
                 // This may happen when a picker or CameraCaptureUI etc. is open.
                 return false;
@@ -333,7 +333,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             return
                 root != null && dob.GetAncestors(includeStart: true).Contains(root) ||
-                VisualTreeHelper.GetOpenPopups(App.Window)
+                VisualTreeHelper.GetOpenPopups(Window.Current)
                     .Any(popup => dob.GetAncestors(includeStart: true).Contains(popup.Child));
         }
 
@@ -353,7 +353,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             if (relativeTo == null)
             {
-                relativeTo = App.Window.Content;
+                relativeTo = Window.Current?.Content;
             }
 
             if (relativeTo == null)
@@ -408,7 +408,7 @@ namespace WinRTXamlToolkit.Controls.Extensions
 
             if (relativeTo == null)
             {
-                relativeTo = App.Window.Content as FrameworkElement;
+                relativeTo = Window.Current?.Content as FrameworkElement;
             }
 
             if (relativeTo == null)
