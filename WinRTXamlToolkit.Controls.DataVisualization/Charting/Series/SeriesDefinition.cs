@@ -562,13 +562,13 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
                     DataPoint legendItemDataPoint = ((DefinitionSeries)_seriesHost).InternalCreateDataPoint();
                     // Apply default style (hard)
                     ContentPresenter container = new ContentPresenter { Content = legendItemDataPoint, Width = 1, Height = 1 };
-                    Popup popup = new Popup { Child = container };
+                    Popup popup = new Popup { Child = container, XamlRoot = this.XamlRoot };
                     container.SizeChanged += delegate
                     {
                         popup.Child = null;
                         popup.IsOpen = false;
                     };
-                    popup.IsOpen = true;
+                    //popup.IsOpen = true;
                     legendItemDataPoint.SetBinding(DataPoint.StyleProperty, new Binding(){Path=new PropertyPath("ActualDataPointStyle") ,Source = this });
                     _legendItem.DataContext = legendItemDataPoint;
                 }

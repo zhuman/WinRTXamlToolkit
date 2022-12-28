@@ -12,6 +12,7 @@ using Windows.UI.Core;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Shapes;
+using Microsoft.UI.Dispatching;
 
 namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
 {
@@ -309,9 +310,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
             // Repeat this after layout pass.
             if (this.ActualLength == 0.0)
             {
-#pragma warning disable 4014
-                this.Dispatcher.RunAsync(CoreDispatcherPriority.High, new DispatchedHandler(action));
-#pragma warning restore 4014
+                this.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.High, new DispatcherQueueHandler(action));
             }
 
             action();
@@ -511,9 +510,7 @@ namespace WinRTXamlToolkit.Controls.DataVisualization.Charting
             // Repeat this after layout pass.
             if (this.ActualLength == 0)
             {
-#pragma warning disable 4014
-                this.Dispatcher.RunAsync(CoreDispatcherPriority.High, new DispatchedHandler(action));
-#pragma warning restore 4014
+                this.DispatcherQueue.TryEnqueue(DispatcherQueuePriority.High, new DispatcherQueueHandler(action));
             }
             else
             {
