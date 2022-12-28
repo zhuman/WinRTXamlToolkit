@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 using Windows.System;
 using Windows.UI.Core;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Input;
 
 namespace WinRTXamlToolkit.Controls
 {
@@ -105,7 +106,7 @@ namespace WinRTXamlToolkit.Controls
         public static void GetMetaKeyState(out bool ctrl)
         {
             //ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
-            ctrl = App.Window.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
+            ctrl = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control) == CoreVirtualKeyStates.Down;
         }
 
         /// <summary>
@@ -116,9 +117,9 @@ namespace WinRTXamlToolkit.Controls
         public static void GetMetaKeyState(out bool ctrl, out bool shift)
         {
             //ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
-            ctrl = App.Window.CoreWindow.GetKeyState(VirtualKey.Control) == CoreVirtualKeyStates.Down;
+            ctrl = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control) == CoreVirtualKeyStates.Down;
             //shift = (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift;
-            shift = App.Window.CoreWindow.GetKeyState(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
+            shift = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Shift) == CoreVirtualKeyStates.Down;
         }
     }
 }

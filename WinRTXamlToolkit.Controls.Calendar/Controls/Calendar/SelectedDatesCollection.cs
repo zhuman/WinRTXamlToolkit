@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
@@ -397,10 +398,7 @@ namespace WinRTXamlToolkit.Controls
         private bool IsValidThread()
         {
             //TODO: See if this is needed
-            //return Thread.CurrentThread == _dispatcherThread;
-            return /*
-                TODO UA306_A2: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
-            */App.Window.Dispatcher.HasThreadAccess;
+            return DispatcherQueue.GetForCurrentThread() != null;
         }
     }
 }

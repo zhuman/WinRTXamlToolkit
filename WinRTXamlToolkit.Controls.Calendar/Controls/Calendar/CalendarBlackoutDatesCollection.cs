@@ -7,6 +7,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;
 
 namespace WinRTXamlToolkit.Controls
@@ -233,10 +234,7 @@ namespace WinRTXamlToolkit.Controls
         /// </summary>
         private void EnsureValidThread()
         {
-            //if (Thread.CurrentThread != _dispatcherThread)
-            if (!/*
-                TODO UA306_A2: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
-            */App.Window.Dispatcher.HasThreadAccess)
+            if (DispatcherQueue.GetForCurrentThread() == null)
             {
                 throw new NotSupportedException(Properties.Resources.CalendarCollection_MultiThreadedCollectionChangeNotSupported);
             }
